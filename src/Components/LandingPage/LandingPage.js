@@ -1,11 +1,11 @@
 import {Link, Outlet} from "react-router-dom";
-import "./LandingPage.css";
+import './LandingPage.css';
 import React from "react";
 
 function LandingPage() {
     return (
         <>
-            <div className="fixed-top container" style={{backgroundColor: "white"}}>
+            <div className="fixed-top container" style={{backgroundColor: "green"}}>
                 <div className="header">Estate Agent</div>
                 <nav className="row">
                     <Link to="/property" className="col-sm block">

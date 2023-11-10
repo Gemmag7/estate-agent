@@ -1,14 +1,13 @@
+import "./App.css";
 import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import "./";
-
 import LandingPage from "./Components/LandingPage/LandingPage";
-import Property from "./Components/Property/Property";
 import Seller from "./Components/Seller/Seller";
 import Buyer from "./Components/Buyer/Buyer";
 import SellerProperty from "./Components/Seller/SellerProperty";
-import Booking from './Components/Booking/Booking';
+import Booking from "./Components/Booking/Booking";
+import Property from "./Components/Property/Property";
 
 function App() {
     return (
