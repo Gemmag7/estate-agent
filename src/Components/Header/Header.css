@@ -6,6 +6,7 @@ body {
 @media (max-width: 979px) {
     body {
         padding-top: 0;
+        
     }
 }
 
@@ -21,17 +22,18 @@ body {
     
 }
 
-.block {
-    background: white;
+.nav-menu {
+    background: #004050;
     padding: 15px 0 0 0;
     height: 80px;
     text-align: center;
-    color: #004050;;
+    color: white;;
     font-family: sans-serif;
     font-size: 25px;
     font-weight: bold;
     margin: 1px;
 }
+
 .subtext {
     font-size: 20px;
     font-weight: normal;

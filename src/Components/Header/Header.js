@@ -9,7 +9,7 @@ function Header() {
         <div className="fixed-top container" style={{backgroundColor: "white"}}> 
                 <div className="header">
                 <Link to="/" className="col-sm block">
-                        Estate Agent 2
+                        Estate Agent
                     </Link>
                     </div>
                <Navigation/>
