@@ -1,12 +1,12 @@
 import {Link, Outlet} from "react-router-dom";
 import './LandingPage.css';
 import React from "react";
-
+import Header from "../Header/Header";
 function LandingPage() {
     return (
         <>
         
-            <div className="fixed-top container" style={{backgroundColor: "green"}}>
+           <div className="fixed-top container" style={{backgroundColor: "white"}}>
                 <div className="header">Estate Agent</div>
                 <nav className="row">
                     <Link to="/property" className="col-sm block">
@@ -20,7 +20,8 @@ function LandingPage() {
                     </Link>
                 </nav>
                 <hr/>
-            </div>
+            </div> 
+            <Header/>
             <div className="container">
                 <Outlet/>
             </div>
