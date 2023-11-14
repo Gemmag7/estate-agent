@@ -1,4 +1,4 @@
-import {Link, Outlet} from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import './LandingPage.css';
 import '../Header/Header.css'
 import React from "react";

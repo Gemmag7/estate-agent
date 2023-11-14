@@ -1,4 +1,4 @@
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './Header.css';
 import React from "react";
 import Navigation from "../Navigation/Navigation";
