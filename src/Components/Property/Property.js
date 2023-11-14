@@ -56,6 +56,7 @@ const Property = (props) => {
         fetch("http://localhost:3004/property")
         // get the JSON content from the response
         .then((response) => {
+            //if response isn't okay and returns a code that is not 200, then an error message will display
             if (!response.ok) {
                 alert("An error has occurred.  Unable to load Properties data");
                 throw response.status;
@@ -97,7 +98,7 @@ const Property = (props) => {
                         </li>
                         :
                         searchResult.map(property => (
-                            <li key={property.id}>
+                            <li key={property.id} >
                                 <div className={"priceBlock " + iconClassForStatus(property.status)}>
                                     <span>{property.status}</span><br/>
                                     £{property.price}

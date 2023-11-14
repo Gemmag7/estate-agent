@@ -45,11 +45,11 @@ const PropertySearchForm = (props) => {
                 <label htmlFor="propertyPrice">Price</label>
                 <select className="form-select" ref={priceRef}>
                     <option value="0">Any</option>
-                    <option value="50000">Up to 50000</option>
-                    <option value="100000">Up to 100000</option>
-                    <option value="200000">Up to 200000</option>
-                    <option value="300000">Up to 300000</option>
-                    <option value="400000">Up to 400000</option>
+                    <option value="50000">Up to £50,000</option>
+                    <option value="100000">Up to £100,000</option>
+                    <option value="200000">Up to £200,000</option>
+                    <option value="300000">Up to £300,000</option>
+                    <option value="400000">Up to £400,000</option>
                 </select>
             </div>
             <div className="form-group col">
