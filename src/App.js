@@ -1,3 +1,4 @@
+//Importing all required imports for App.js to run
 import "./App.css";
 import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -26,4 +27,6 @@ function App() {
         </BrowserRouter>
     );
 }
+
+//Exporting App component to display in Index.js when called <App/>
 export default App;
