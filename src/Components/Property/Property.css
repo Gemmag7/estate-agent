@@ -63,3 +63,40 @@
 .detailsBlock i + span {
     margin-right: 15px;
 }
+
+/*********************************************
+* Restyle the <ul>
+********************************************/
+
+/* Remove margins and padding from the ul element (unordered lis)  so that the list is flushed with the
+ browser borders instead of leaving a gap */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Each li element with the ul will hold a todo_item */
+ul li {
+  cursor: pointer;
+  padding: 12px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+}
+
+/* Set all odd list items to a different background colour (zebra-stripes)*/
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: pink;
+}
+
+/* When clicked on, change the background colour and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
