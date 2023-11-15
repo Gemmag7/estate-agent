@@ -1,11 +1,11 @@
-import Navigation from "../Navigation/Navigation";
+//import Navigation from "../Navigation/Navigation";
 
 function Footer() {
     return (
         <>
         <div > 
                 
-               <Navigation/>
+             <h2>Footer</h2>
                 
             </div>
         </>
