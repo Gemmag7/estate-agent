@@ -19,6 +19,12 @@ body {
     font-size: 35pt;
     font-weight: bold;
     padding: 0 0 0 100px;
+    position: fixed;
+    display: flex;
+   
+   
+
+  
     
 }
 

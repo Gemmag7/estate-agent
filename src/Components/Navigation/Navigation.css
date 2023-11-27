@@ -1,203 +1,170 @@
-body {
-    padding-top: 200px !important;
-}
-
-/*todo need fix*/
-
-
-
-/** ul class used to click on nav menu*/
-.nav-menu{
-    background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
-    
-    height: 80px;
-    text-align: center;
-    color: #fff;;
-    font-family: sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    margin: 1px;
-    display: flex;
-}
-.subtext {
-    font-size: 20px;
-    font-weight: normal;
-}
-
-/**Main nav bar??????*/
 .navbar {
+  background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+.navbar-logo {
+  color: #fff;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: center;
+  margin-right: 2rem;
+  height: 90px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-links {
+  color: #004050;
+  height: 100%;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: flex;
+}
+
+.nav-links a{
+  display: block;
+  text-decoration: none;
+  padding: 1rem 0;
+  font-size: 1rem;
+  text-align: center;
+  color: #004050;
+}
+.nav-links:hover {
+  background-color: #fff;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 979px) {
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav-menu {
     background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
-    height: 80px;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-   
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 80px;
+    left: -160%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
+    left: 0;
+    
+    right: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
     z-index: 1;
   }
- 
-/** A container to hold navbar */
-  .navbar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    width: 100%;
-    
-    }
-  /** The logo displayed in navbar i.e. ESTATE AGENT*/
-  /** NOT USED */
-  .navbar-logo {
-    color:lime;
-    justify-self: start;
-    margin-left: 18px;
-    cursor: pointer;
-    text-decoration:none;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  /** The navigation menu*/
-.nav-menu {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    
-    list-style: none;
+
+  .nav-links {
     text-align: center;
+    padding: 2rem;
     width: 100%;
-    height: 90px;
-    justify-content: center;
-    
-    
+    display: table;
   }
 
-  /** Size of each item in the navbar - LINKS */
-  .nav-item {
-    height: 80px;
-  }
-  
-  /** Links displayed in navbar*/
-  .nav-links {
-    color: #004050;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
-  }
-  
-  /** Not sure */
-  .nav-links a{
-    display: block;
-    text-decoration: none;
-    padding: 1rem 0;
-    color: green;
-    text-align: center;
-    font-size: 1rem;
-  }
   .nav-links:hover {
-    border-bottom: 4px solid #cac2c2;
-    transition: all 0.2s ease-out;
+    background-color: #fff7;
+    color: #242424;
+    border-radius: 0;
   }
-  
-  .fa-bars {
-    color: #fff;
+
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
   }
-  
-  .nav-links-mobile {
-    display: none;
-  }
-  
+
   .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 100%;
+    background-color: transparent;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 14px 16px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #004050;
+    transition: 250ms;
+  }
+
+  button {
     display: none;
   }
-  
-  @media screen and (max-width: 979px) {
-    .NavbarItems {
-      position:relative;
-    }
-  
-    .nav-menu {
-        background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
-      display:flex;
-      flex-direction: column;
-      width: 100%;
-      height: 60vh;
-      position: absolute;
-      top: 64px;
-      left: -160%;
-      opacity: 1;
-      transition: all 0.5s ease;
-      
-    }
-  
-    .nav-menu.active {
-    background: linear-gradient(90deg, #004050 0%, rgb(26, 23, 23) 100%);
-      left: 0;
-      width: 100%;
-      right:0;
-      opacity: 1;
-      transition:all 0.5s ease;
-      z-index: 1;
-    
-    }
-  
-    .nav-links {
-      text-align: center;
-      padding: 2rem;
-      width: 100%;
-      display: table;
-    }
-  
-    .nav-links:hover {
-      background-color: #fff7;
-      color: #242424;
-      border-radius: 0;
-    }
-  
-    .navbar-logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(25%, 50%);
-    }
-  
-    .menu-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-  
-    .fa-times {
-      color: #fff;
-      font-size: 2rem;
-    }
-  
-    .nav-links-mobile {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-      border-radius: 4px;
-      width: 100%;
-      text-decoration: none;
-      font-size: 1.5rem;
-      background-color: transparent;
-      color: #ff0c0c;
-      padding: 14px 16px;
-      border: 1px solid #fff;
-      transition: all 0.3s ease-out;
-    }
-  
-    .nav-links-mobile:hover {
-      background: green;
-      color: #610000;
-      transition: 250ms;
-    }
-  }
+}

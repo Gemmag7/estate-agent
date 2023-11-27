@@ -28,12 +28,14 @@ const PropertySearchForm = (props) => {
         bathroomsRef.current.value = 0;
         gardenRef.current.value = 0;
         priceRef.current.value = 0;
+
+        doSearch();
     };
 
     return (<form>
         <div className="row">
             <div className="form-group col">
-                <label htmlFor="propertyType">Type</label>
+                <label htmlFor="propertyType" ><i class="fas fa-home"></i>&nbsp;Type</label>
                 <select className="form-select" ref={typeRef}>
                     <option value="ANY">Any</option>
                     <option value="DETACHED">Detached</option>
@@ -42,7 +44,7 @@ const PropertySearchForm = (props) => {
                 </select>
             </div>
             <div className="form-group col">
-                <label htmlFor="propertyPrice">Price</label>
+                <label htmlFor="propertyPrice"><i class="fas fa-money-bill-wave"></i>&nbsp;Price</label>
                 <select className="form-select" ref={priceRef}>
                     <option value="0">Any</option>
                     <option value="50000">Up to £50,000</option>
@@ -53,7 +55,7 @@ const PropertySearchForm = (props) => {
                 </select>
             </div>
             <div className="form-group col">
-                <label htmlFor="numberOfBedrooms">Bedrooms</label>
+                <label htmlFor="numberOfBedrooms"><i class="fas fa-bed"></i>&nbsp;Bedrooms</label>
                 <select className="form-select" ref={bedroomsRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
@@ -64,7 +66,7 @@ const PropertySearchForm = (props) => {
                 </select>
             </div>
             <div className="form-group col">
-                <label htmlFor="numberOfBathrooms">Bathrooms</label>
+                <label htmlFor="numberOfBathrooms"><i class="fas fa-bath"></i>&nbsp;Bathrooms</label>
                 <select className="form-select" ref={bathroomsRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
@@ -73,7 +75,7 @@ const PropertySearchForm = (props) => {
                 </select>
             </div>
             <div className="form-group col">
-                <label htmlFor="numberOfGardens">Garden</label>
+                <label htmlFor="numberOfGardens"><i class="fas fa-tree"></i>&nbsp;Garden</label>
                 <select className="form-select" ref={gardenRef}>
                     <option value="0">Any</option>
                     <option value="1">Yes</option>
