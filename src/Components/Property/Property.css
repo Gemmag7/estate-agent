@@ -100,3 +100,55 @@ ul li.checked {
   color: #fff;
   text-decoration: line-through;
 }
+
+#selectgroup {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    background-color: #ffccff; /* Light pink background */
+    border: 2px solid #ff69b4; /* Hot pink border */
+    color: #800080; /* Purple text color */
+  }
+   
+  /* Styles for the search button */
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ff69b4; /* Hot pink button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+   
+  button:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+  }
+   
+  /* Styles for the table */
+  #table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+   
+  #table th,
+  #table td {
+    border: 1px solid #ffd1dc; /* Light pink border */
+    padding: 8px;
+    text-align: left;
+  }
+   
+  #txtheader {
+    background-color: #ff69b4; /* Hot pink table header background */
+    color: white;
+    font-weight: bold;
+  }
+   
+  /* Styles for table rows */
+  #table tr:nth-child(even) {
+    background-color: #fff0f5; /* Light pink rows */
+  }
+   
+  #table tr:hover {
+    background-color: #ffe4e1; /* Darker pink on row hover */
+  }

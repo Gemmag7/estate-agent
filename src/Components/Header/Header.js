@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 function Header() {
     return (
         <>
-        <div className="fixed-top container" style={{backgroundColor: "white"}}> 
+        <div className="fixed-top container" > 
                 <div className="header">
                 <Link to="/" className="col-sm block">
                         Estate Agent
