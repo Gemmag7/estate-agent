@@ -7,11 +7,6 @@ function Header() {
     return (
         <>
         <div className="fixed-top container" > 
-                <div className="header">
-                <Link to="/" className="col-sm block">
-                        Estate Agent
-                    </Link>
-                    </div>
                <Navigation/>
                 
             </div>

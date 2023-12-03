@@ -29,6 +29,7 @@ const Property = (props) => {
         ));
     };
 
+    /** Assigns a bootstrap icon to the type of property */
     const iconClassForPropertyType = (propertyType) => {
         switch (propertyType) {
             case "DETACHED" :
@@ -40,6 +41,13 @@ const Property = (props) => {
         }
     };
 
+
+    /**
+     * Method is used to display the status of a property 
+     * e.g. if SOLD, then the status returned should show sold
+     * @param {propertyStatus}   is used to pass in the current status of the property 
+     * @returns the status of the property
+     */
     const iconClassForStatus = (propertyStatus) => {
         switch (propertyStatus) {
             case "FORSALE" :

@@ -1,0 +1,46 @@
+.form-group col{
+    display: flexbox;
+}
+
+
+.form-select{
+    color: plum;
+    border-color: #FFC0CB;
+}
+
+/* PropertyForm.css */
+
+/* Body background color */
+body {
+    background-color: #fce4ec; /* Light pink background */
+}
+
+/* Form labels */
+label {
+    color: #9955bb;; /* Pink text color for labels */
+}
+
+/* Form select dropdowns */
+.form-select {
+    background-color: #fff; /* White dropdown background */
+    color: #ff69b4; /* Pink text color for dropdown options */
+    border-color: #ff69b4; /* Pink border color for dropdowns */
+}
+
+/* Buttons */
+.btn {
+    color: #fff; /* White text color for buttons */
+    background-color: #ff69b4; /* Pink background for buttons */
+    border-color: #ff69b4; /* Pink border color for buttons */
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #ff1493; /* Darker pink background on hover */
+    border-color: #ff1493; /* Darker pink border color on hover */
+}
+
+/* Icon colors */
+.fas, .bi {
+    color: #9955bb; /* Pink icon color */
+}
