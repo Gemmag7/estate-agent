@@ -28,22 +28,9 @@ function AddProperty(){
         setProperty({ ...property, garden: value });
     };
 
-    const handleCheck = ()=>{
-        
-           //TRUE
-        if(!isChecked ){
-            if(!isChecked ===false){
-            console.log("False" ,isChecked)
-            setIsChecked(isChecked)
-        setProperty({ ...property, garden: 1 });}
-    else{
-        setProperty({ ...property, garden: 0});
-        setIsChecked(!isChecked)
-        console.log("TRUE",isChecked)
-    }
-}
+    
 
-    }
+    
 
 
      // {Number(property.garden) ? "Yes" : "No"}

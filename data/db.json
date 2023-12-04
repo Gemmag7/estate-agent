@@ -243,6 +243,17 @@
       "garden": "",
       "status": "",
       "id": 15
+    },
+    {
+      "address": "gemma",
+      "postcode": "T35 T1ng",
+      "type": "13242 dtere",
+      "price": "4",
+      "bedroom": "3",
+      "bathroom": "3",
+      "garden": "1",
+      "status": "",
+      "id": 16
     }
   ],
   "buyer": [
