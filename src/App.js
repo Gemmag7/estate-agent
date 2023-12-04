@@ -9,6 +9,8 @@ import Buyer from "./Components/Buyer/Buyer";
 import SellerProperty from "./Components/Seller/SellerProperty";
 import Booking from "./Components/Booking/Booking";
 import Property from "./Components/Property/Property";
+import ViewProperties from "./Components/Property/ViewProperties";
+import AddProperty from "./Components/Property/AddProperty";
 
 function App() {
     return (
@@ -17,9 +19,11 @@ function App() {
                 <Route path="/" element={<LandingPage/>}> {/*This is the root path*/}
                     <Route index element={<Property/>}/> {/*This is the default component shown in the <Outlet> tag */}
                     <Route path="property" element={<Property/>}/>
+                    <Route path="property/add" element={<AddProperty/>}/>
                     <Route path="seller" element={<Seller/>}/>
                     <Route path="seller/:sellerId/property" element={<SellerProperty/>}/>
                     <Route path="buyer" element={<Buyer/>}/>
+                    <Route path="viewproperty" element={<ViewProperties/>}/>
                     <Route path="property/:propertyId/booking" element={<Booking/>}/>
                     {/*<Route path="*" element={<NoPage/>}/>*/}
                 </Route>

@@ -1,16 +1,10 @@
 import {BrowserRouter, Route, Routes,Link} from "react-router-dom";
 import './Navigation.css';
 import React, { useContext, useEffect, useState } from "react";
-import LandingPage from "../LandingPage/LandingPage";
-import Seller from "../Seller/Seller";
-import {Button} from "../Button/Button"
-import Property from "../Property/Property";
-import Buyer from "../Buyer/Buyer";
-import Booking from "../Booking/Booking";
-import SellerProperty from "../Seller/SellerProperty";
 
 
-export default function Navigation() {
+
+function Navigation() {
 
     //use State is used to update the state if user has clicked on hamburger icon
     const [click, setClick] = useState(false);
@@ -109,3 +103,5 @@ export default function Navigation() {
                      
         
     }
+
+    export default Navigation;
