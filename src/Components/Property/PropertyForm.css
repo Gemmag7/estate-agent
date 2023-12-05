@@ -4,7 +4,7 @@
 
 
 .form-select{
-    color: plum;
+    color: #9955bb;
     border-color: #FFC0CB;
 }
 
@@ -13,6 +13,7 @@
 /* Body background color */
 body {
     background-color: #fce4ec; /* Light pink background */
+    border: #9955bb;
 }
 
 /* Form labels */
@@ -23,7 +24,7 @@ label {
 /* Form select dropdowns */
 .form-select {
     background-color: #fff; /* White dropdown background */
-    color: #ff69b4; /* Pink text color for dropdown options */
+    color: #9955bb; /* Pink text color for dropdown options */
     border-color: #ff69b4; /* Pink border color for dropdowns */
 }
 

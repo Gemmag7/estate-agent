@@ -254,6 +254,18 @@
       "garden": "1",
       "status": "",
       "id": 16
+    },
+    {
+      "address": "test",
+      "postcode": "tsdydu",
+      "type": "DETACHED",
+      "price": "38890004",
+      "bedroom": "2",
+      "bathroom": "2",
+      "garden": "1",
+      "sellerId": "2",
+      "status": "FOR SALE",
+      "id": 17
     }
   ],
   "buyer": [

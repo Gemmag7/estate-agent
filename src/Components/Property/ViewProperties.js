@@ -2,12 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom"
 import './ViewProperty.css';
+import PropertySearch from './PropertySearch';
 
 function ViewProperties(){
 
+    const [searchResult, setSearchResult] = useState([]);
     let [properties, setProperties] = useState([])
 useEffect(() =>{ generatePropertyList();
 }, []);
+
+const searchHandler = (searchCriteria) => {
+    setSearchResult(properties.filter(property =>
+        (searchCriteria.type === "ANY" || property.type === searchCriteria.type) &&
+        (Number(property.bedroom) >= Number(searchCriteria.bedroom)) &&
+        (Number(property.bathroom) >= Number(searchCriteria.bathroom)) &&
+        (Number(property.garden) >= Number(searchCriteria.garden)) &&
+        (Number(searchCriteria.price) === 0 || Number(property.price) <= Number(searchCriteria.price))
+    ));
+};
     
 function DeleteProperties(X){
 
@@ -55,7 +67,8 @@ function generatePropertyList()
     return(
         <>
         
-        <div className='container'>
+        <div className="pageHeader"><i className="bi bi-house-fill"/>&nbsp;Property Search and Bookings</div>
+        <PropertySearch searchHandler={searchHandler}/>
             <div className='heading'>
         <h2>Properties</h2>
         <br/>
@@ -104,7 +117,7 @@ function generatePropertyList()
             </tbody>
         </table>
         </div>
-        </div>
+       
        
         </>
     )

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import React, {useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddProperty(){
 
     let navigate = useNavigate();
-    const[isChecked , setIsChecked ] = useState(false);
-
+   
     
     const [property, setProperty] = useState({
         
@@ -16,6 +15,7 @@ function AddProperty(){
         "bedroom": "", 
         "bathroom": "", 
         "garden" : "", 
+        "sellerId":"",
         "status" : ""
       })
 
@@ -28,43 +28,47 @@ function AddProperty(){
         setProperty({ ...property, garden: value });
     };
 
-    
-
-    
-
-
-     // {Number(property.garden) ? "Yes" : "No"}
-      const handleSubmit =(e) => {
+    /**
+     * 
+     * @param {} e Handles the form submission
+     */
+    const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/property`, {
-
-        method:"POST", 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(property),
+        setProperty({...property, sellerId: document.getElementById("sellerId").value})
+        // Fetch request to check if sellerId exists in the database
+        fetch(`http://localhost:3004/seller/${property.sellerId}`)
+            .then(res => {
+                if (res.ok) {
+                    // If sellerId exists, proceed to add the property
+                    return fetch(`http://localhost:3004/property`, {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ...property,
+                            status: "FOR SALE"
+                        }),
+                    });
+                } else {
+                    // If sellerId does not exist, handle the error
+                    alert("Cannot add property: Seller ID not found");
+                   
+                }
+            })
+            .then(res => res.json())
+            .then(res => {
+                // Handle the response or navigate to viewproperty
+                console.log(res);
+                navigate('/');
+            })
+            .catch(error => {
+                // Handle error, show a message, etc.
+                console.error(error);
+            });
+    };
       
-    }).then(res => res.json())
-        .then(res => {
-        setProperty({...property, 
-            id: property.id,
-            address: document.getElementById("address").value, 
-            postcode: document.getElementById("postcode").value,
-            type: document.getElementById("propertyType").value,
-            price:document.getElementById("price").value,
-            bedroom: document.getElementById("bedroomNo").value,
-            bathroom: document.getElementById("bathroomNo").value,
-            garden: document.getElementById("gardenSelect").value,
-            status: "FOR SALE"
-
-        })
-
-        console.log(document.getElementById("gardenSelect").value)
-        navigate('/viewproperty')
-        console.log(":",property)
-    });
     
-}
 
 
     return(
@@ -89,7 +93,7 @@ function AddProperty(){
                     Postcode:<input
                                         type="text"
                                         id="postcode"
-                                        value={property.postcod}
+                                        value={property.postcode}
                                         name="postcode"
                                         className="form-control"
                                         onChange={e => setProperty({...property, postcode:e.target.value})}
@@ -137,10 +141,20 @@ function AddProperty(){
                                         value={property.bathroom}
                                         className="form-control"
                                         onChange={e => setProperty({...property, bathroom:e.target.value})}
-                                        placeholder="Enter Number of Bathrooms..."
+                                        
                                         />
                     </div>
-                    
+                    <div>
+                    Seller Id:<input
+                                        type="number"
+                                        id="sellerId"
+                                        name="sellerId"
+                                        value={property.sellerId}
+                                        className="form-control"
+                                        onChange={e => setProperty({...property, sellerId:e.target.value})}
+                                        
+                                        />
+                    </div>
                     
                     <div>
                     Garden:  <select
