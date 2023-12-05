@@ -105,7 +105,7 @@
       "bathroom": 1,
       "garden": 1,
       "sellerId": 3,
-      "status": "WITHDRAWN",
+      "status": "FOR SALE",
       "id": 3
     },
     {
@@ -119,103 +119,6 @@
       "sellerId": 4,
       "status": "SOLD",
       "id": 4
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 5
-    },
-    {
-      "address": "123 street street",
-      "postcode": "T35 T1ng",
-      "type": "APARTMENT",
-      "price": "1",
-      "bedroom": "1",
-      "bathroom": "1",
-      "garden": "",
-      "status": "WITHDRAWN",
-      "id": 6
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 7
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 8
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 9
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 10
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 11
-    },
-    {
-      "address": "123 street street",
-      "postcode": "T35 T1nG",
-      "type": "APARTMENT",
-      "price": "20000",
-      "bedroom": "3",
-      "bathroom": "1",
-      "garden": "",
-      "status": " ",
-      "sellerId": "7",
-      "id": 12
-    },
-    {
-      "address": "124 test street",
-      "postcode": "T35 T1nG",
-      "type": "DETACHED",
-      "price": "38890004",
-      "bedroom": "22",
-      "bathroom": "3",
-      "garden": "",
-      "sellerId": "7",
-      "status": " ",
-      "id": 13
-    },
-    {
-      "address": "124 test street",
-      "postcode": "T35 T1nG",
-      "type": "APARTMENT",
-      "price": "23020",
-      "bedroom": "3",
-      "bathroom": "1",
-      "garden": "",
-      "sellerId": "1",
-      "status": " ",
-      "id": 14
-    },
-    {
-      "address": "AAAAHHH",
-      "postcode": "WEFE",
-      "type": "DETACHED",
-      "price": "123",
-      "bedroom": "1",
-      "bathroom": "2",
-      "garden": "",
-      "status": "",
-      "id": 15
-    },
-    {
-      "address": "gemma",
-      "postcode": "T35 T1ng",
-      "type": "13242 dtere",
-      "price": "4",
-      "bedroom": "3",
-      "bathroom": "3",
-      "garden": "1",
-      "status": "",
-      "id": 16
-    },
-    {
-      "status": "WITHDRAWN",
-      "id": 17
     }
   ],
   "buyer": [
