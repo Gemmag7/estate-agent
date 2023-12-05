@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function EditProperty(props) {
+
     const { id } = useParams();
     const location = useLocation();
-    const navigate = useNavigate();
+    let navigate = useNavigate();
+console.log("PROPS: ",props.price)
 
     const [values, setValues] = useState({
         id: id,
@@ -19,7 +21,7 @@ function EditProperty(props) {
         status: props.status,
     });
 
-    console.log(values)
+    console.log("VALUES",values)
     useEffect(() => {
         fetch(`http://localhost:3004/property/${id}`)
         .then(res => {
@@ -40,6 +42,14 @@ function EditProperty(props) {
            
     }, []);
 
+        /**
+       * is in charge of when the garden select option is picked
+       * @param {*} e used to find the selected value
+       */
+        const handleSelectChange = (e) => {
+           
+            setValues({ ...values, garden: e.target.value });
+        };
     const handleStatusChange = (e) => {
         setValues({ ...values, status: e.target.value });
     };
@@ -65,9 +75,10 @@ function EditProperty(props) {
                     bathroom: values.bathroom, 
                     garden: values.garden, 
                     sellerId: values.sellerId,
-                    status: "WITHDRAWN" });
+                    status: values.status 
+                });
                 navigate('/viewproperty');
-                console.log("Updated status:", values.status);
+                
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -76,79 +87,86 @@ function EditProperty(props) {
 
     return (
         <div>
-            <h2>Withdraw a property:</h2>
+            <h2>Edit Property Details:</h2>
             <form onSubmit={handleSubmit}>
+            <div>
+                    Address:<input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        value={values.address}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, address:e.target.value})}
+                                        
+                                        />
+                    </div>
                 <div>
-                    Address:
-                    <input
-                        type="text"
-                        value={values.address}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
+                    Postcode:<input
+                                        type="text"
+                                        id="postcode"
+                                        name="postcode"
+                                        value={values.postcode}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, postcode:e.target.value})}
+                                        
+                                        />
+                    </div>
+                    <div>
+                    Type:<input
+                                        type="text"
+                                        id="type"
+                                        name="address"
+                                        value={values.type}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, type:e.target.value})}
+                                        
+                                        />
+                    </div>
+                    <div>
+                    Price:<input
+                                        type="text"
+                                        id="price"
+                                        name="price"
+                                        value={values.price}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, price:e.target.value})}
+                                        
+                                        />
+                    </div>
+                    <div>
+                    Bedrooms:<input
+                                        type="text"
+                                        id="bedroomNo"
+                                        name="bedroomNo"
+                                        value={values.bedroom}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, bedroom:e.target.value})}
+                                        
+                                        />
+                    </div>
+                    <div>
+                    Bathrooms:<input
+                                        type="text"
+                                        id="bathroomNo"
+                                        name="batroomNo"
+                                        value={values.bathroom}
+                                        className="form-control"
+                                        onChange={e => setValues({...values, bathroom:e.target.value})}
+                                       
+                                        />
+                    </div>
                 <div>
-                    postcode:
-                    <input
-                        type="text"
-                        value={values.postcode}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    Type:
-                    <input
-                        type="text"
-                        value={values.type}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    Price:
-                    <input
-                        type="text"
-                        value={values.price}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    Bedrooms:
-                    <input
-                        type="text"
-                        value={values.bedroom}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    Bathrooms:
-                    <input
-                        type="text"
-                        value={values.bathroom}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    Garden:
-                    <input
-                        type="text"
-                        value={Number(values.garden) ? "Yes" : "No"}
-                        readOnly={true}
-                        className="form-control"
-                    />
-                </div>
-                <div>
-                    sellerId:
-                    <input
-                        type="text"
-                        value={values.sellerId}
-                        readOnly={true}
-                        className="form-control"
-                    />
+                    Garden: <select
+                            id="gardenSelect"
+                            className="form-control"
+                            onChange={handleSelectChange}
+                            value={values.garden}
+                            name="gardenSelect"
+                        >
+                    <option disabled>Any</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
                 </div>
                 <div>
                     Status:
@@ -157,6 +175,7 @@ function EditProperty(props) {
                         className="form-control"
                         onChange={handleStatusChange}
                         value={values.status}
+                        name="gardenSelect"
                     >
                         <option value="FOR SALE">For Sale</option>
                         <option value="WITHDRAWN">Withdrawn</option>
@@ -165,7 +184,7 @@ function EditProperty(props) {
                 </div>
                 <br />
                 <br />
-                <button id="mainBtn" className="btn btn-info">Add</button>
+                <button id="mainBtn"  className="btn btn-info" >Update</button>
             </form>
         </div>
     );

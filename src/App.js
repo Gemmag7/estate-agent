@@ -14,6 +14,7 @@ import AddProperty from "./Components/Property/AddProperty";
 import WithdrawProperty from "./Components/Property/WithdrawProperty";
 import ViewSellers from "./Components/Seller/ViewSellers";
 import DeleteSeller from "./Components/Seller/DeleteSeller";
+import EditProperty from "./Components/Property/EditProperty";
 
 function App() {
     return (
@@ -31,9 +32,10 @@ function App() {
                     <Route path="buyer" element={<Buyer/>}/>
                     {/**<Route path ="/buyer/:id/edit" element={<EditBuyer/>}/>*/}
                    {/**  <Route path ="/buyer/add" element={<AddBuyer/>}/>*/}
-                    <Route path="viewproperty" element={<ViewProperties/>}/>
-                    <Route path="property/:id/withdraw" element={<WithdrawProperty/>}/>
-                    <Route path="property/:propertyId/booking" element={<Booking/>}/>
+                    <Route path="/viewproperty" element={<ViewProperties/>}/>
+                    <Route path="/property/:id/withdraw" element={<WithdrawProperty/>}/>
+                    <Route path="/property/:propertyId/booking" element={<Booking/>}/>
+                    <Route path="/property/:id/edit" element={<EditProperty/>}/>
                     {/*<Route path="*" element={<NoPage/>}/>*/}
                 </Route>
             </Routes>

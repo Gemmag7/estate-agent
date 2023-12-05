@@ -1,44 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
 function WithdrawProperty(props) {
     const { id } = useParams();
-    const location = useLocation();
+   // const location = useLocation();
     const navigate = useNavigate();
 
+    // Initial state based on props
     const [values, setValues] = useState({
-        id: id,
-        address: props.address,
-        postcode: props.postcode,
-        type: props.type,
-        price: props.price,
-        bedroom: props.bedroom,
-        bathroom: props.bathroom,
-        garden: props.garden,
-        sellerId: props.sellerId,
-        status: props.status,
+        id: props.id || "",
+        address: props.address || "",
+        postcode: props.postcode || "",
+        type: props.type || "",
+        price: props.price || "",
+        bedroom: props.bedroom || "",
+        bathroom: props.bathroom || "",
+        garden: props.garden || "",
+        sellerId: props.sellerId || "",
+        status: props.status || "",
     });
 
-    console.log(values)
     useEffect(() => {
-        fetch(`http://localhost:3004/property/${id}`)
-        .then(res => {
-            setValues({
-                id: location.state.property.id,
-                address: location.state.property.address,
-                postcode: location.state.property.postcode,
-                type: location.state.property.type,
-                price: location.state.property.price,
-                bedroom: location.state.property.bedroom,
-                bathroom: location.state.property.bathroom,
-                garden: location.state.property.garden,
-                sellerId: location.state.property.sellerId,
-                status: location.state.property.status
-            })
-        }).catch( err => console.log(err))
-            
-           
-    }, []);
+        if (!props.id) {
+            // Fetch data only if props are not available
+            fetch(`http://localhost:3004/property/${id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setValues(data);
+                })
+                .catch((err) => console.log(err));
+        }
+    }, [id, props.id]);
 
     const handleStatusChange = (e) => {
         setValues({ ...values, status: e.target.value });
@@ -55,17 +47,7 @@ function WithdrawProperty(props) {
         })
             .then((res) => res.json())
             .then((res) => {
-                setValues({ ...values, 
-                    id: id,
-                    address: values.address, 
-                    postcode: values.postcode, 
-                    type: values.type, 
-                    price: values.price, 
-                    bedroom: values.bedroom, 
-                    bathroom: values.bathroom, 
-                    garden: values.garden, 
-                    sellerId: values.sellerId,
-                    status: "WITHDRAWN" });
+                setValues({ ...values, status: "WITHDRAWN" });
                 navigate('/viewproperty');
                 console.log("Updated status:", values.status);
             })
@@ -73,6 +55,9 @@ function WithdrawProperty(props) {
                 console.error("Error:", error);
             });
     };
+
+    
+
 
     return (
         <div>
