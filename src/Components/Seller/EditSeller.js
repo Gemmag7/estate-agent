@@ -15,7 +15,7 @@ function EditSeller(props){
         "phone": props.phone
       })
     useEffect(()=> {
-        fetch(`http://localhost:3000/seller/${id}`)
+        fetch(`http://localhost:3004/seller/${id}`)
         .then(res => {
         setValues({...values, 
             "firstName": location.state.sellers.firstName,
@@ -31,7 +31,7 @@ function EditSeller(props){
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/seller/${id}`, {
+        fetch(`http://localhost:3004/seller/${id}`, {
        
         method:"PUT", 
         headers: {

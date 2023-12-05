@@ -1,167 +1,174 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-function WithdrawProperty(props){
-
-    let navigate = useNavigate();
-    const {id} = useParams();
+function WithdrawProperty(props) {
+    const { id } = useParams();
     const location = useLocation();
-    const [values, setValues] = useState({
-        "id": id,
-        "address": props.address,
-        "postcode": props.postcode,
-        "type": props.address,
-        
-        "phone": props.phone
-      })
-    useEffect(()=> {
-        fetch(`http://localhost:3004/property/${id}`)
-        .then(res => {
-        setValues({...values, 
-            "address": location.state.property.address,
-            "surname": location.state.sellers.surname,
-            
-            "postcode": location.state.sellers.postcode,
-            "phone": location.state.sellers.phone,
-        })
-    }).catch(err => console.log(err))
-        
-     
-    }, [])
+    const navigate = useNavigate();
 
-    const handleSubmit =(e) => {
-        e.preventDefault();
-        fetch(`http://localhost:3000/property/${id}`, {
-       
-        method:"PUT", 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      
-    }).then(res => res.json())
-        .then(res => {
-        setValues({...values, 
-            id: id,
-            firstName: document.getElementById("address").value, 
-            surname: document.getElementById("surname").value,
-            address: document.getElementById("address").value,
-            postcode:document.getElementById("postcode").value,
-            phone: document.getElementById("phoneNo").value,
-        })
-        navigate('/seller')
-        console.log(":",values)
+    const [values, setValues] = useState({
+        id: id,
+        address: props.address,
+        postcode: props.postcode,
+        type: props.type,
+        price: props.price,
+        bedroom: props.bedroom,
+        bathroom: props.bathroom,
+        garden: props.garden,
+        sellerId: props.sellerId,
+        status: props.status,
     });
 
-   
-    }
-    return(
-        <div >
-        <h2>Add a property:</h2>
-        <div >
-            <form onSubmit={handleSubmit} >
+    console.log(values)
+    useEffect(() => {
+        fetch(`http://localhost:3004/property/${id}`)
+        .then(res => {
+            setValues({
+                id: location.state.property.id,
+                address: location.state.property.address,
+                postcode: location.state.property.postcode,
+                type: location.state.property.type,
+                price: location.state.property.price,
+                bedroom: location.state.property.bedroom,
+                bathroom: location.state.property.bathroom,
+                garden: location.state.property.garden,
+                sellerId: location.state.property.sellerId,
+                status: location.state.property.status
+            })
+        }).catch( err => console.log(err))
+            
+           
+    }, []);
+
+    const handleStatusChange = (e) => {
+        setValues({ ...values, status: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:3004/property/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                setValues({ ...values, 
+                    id: id,
+                    address: values.address, 
+                    postcode: values.postcode, 
+                    type: values.type, 
+                    price: values.price, 
+                    bedroom: values.bedroom, 
+                    bathroom: values.bathroom, 
+                    garden: values.garden, 
+                    sellerId: values.sellerId,
+                    status: "WITHDRAWN" });
+                navigate('/viewproperty');
+                console.log("Updated status:", values.status);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
+
+    return (
+        <div>
+            <h2>Withdraw a property:</h2>
+            <form onSubmit={handleSubmit}>
                 <div>
-                    
-                    Address:<input
-                                    type="text"
-                                    id="address"
-                                    value={property.address}
-                                    name="name"
-                                    onChange={e => setProperty({...property, address:e.target.value})}
-                                    className="form-control"
-                                    placeholder="Enter Address..."
-                                    />
-                    
+                    Address:
+                    <input
+                        type="text"
+                        value={values.address}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Postcode:<input
-                                    type="text"
-                                    id="postcode"
-                                    value={property.postcode}
-                                    name="postcode"
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, postcode:e.target.value})}
-                                    placeholder="Enter Postcode..."
-                                    />
+                    postcode:
+                    <input
+                        type="text"
+                        value={values.postcode}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Type:<input
-                                    type="text"
-                                    id="propertyType"
-                                    name="address"
-                                    value={property.type}
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, type:e.target.value})}
-                                    placeholder="Enter Property Type..."
-                                    />
+                    Type:
+                    <input
+                        type="text"
+                        value={values.type}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Price:<input
-                                    type="text"
-                                    id="price"
-                                    name="price"
-                                    value={property.price}
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, price:e.target.value})}
-                                    placeholder="Enter Price..."
-                                    />
+                    Price:
+                    <input
+                        type="text"
+                        value={values.price}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Bedroom:<input
-                                    type="number"
-                                    id="bedroomNo"
-                                    name="bedroomNo"
-                                    value={property.bedroom}
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, bedroom:e.target.value})}
-                                    placeholder="Enter Number of Bedrooms..."
-                                    />
+                    Bedrooms:
+                    <input
+                        type="text"
+                        value={values.bedroom}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Bathrooms:<input
-                                    type="number"
-                                    id="bathroomNo"
-                                    name="bathroomNo"
-                                    value={property.bathroom}
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, bathroom:e.target.value})}
-                                    
-                                    />
+                    Bathrooms:
+                    <input
+                        type="text"
+                        value={values.bathroom}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
                 <div>
-                Seller Id:<input
-                                    type="number"
-                                    id="sellerId"
-                                    name="sellerId"
-                                    value={property.sellerId}
-                                    className="form-control"
-                                    onChange={e => setProperty({...property, sellerId:e.target.value})}
-                                    
-                                    />
+                    Garden:
+                    <input
+                        type="text"
+                        value={Number(values.garden) ? "Yes" : "No"}
+                        readOnly={true}
+                        className="form-control"
+                    />
                 </div>
-                
                 <div>
-                Garden:  <select
+                    sellerId:
+                    <input
+                        type="text"
+                        value={values.sellerId}
+                        readOnly={true}
+                        className="form-control"
+                    />
+                </div>
+                <div>
+                    Status:
+                    <select
                         id="statusSelect"
-                        className="form-select"
-                        onChange={handleSelectChange}
-                        value={property.garden}
+                        className="form-control"
+                        onChange={handleStatusChange}
+                        value={values.status}
                     >
-                <option disabled>Any</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select>
-            </div>
-                <br/>
-                <br/>
-                <button id="mainBtn"  className="btn btn-info" >Add</button>
+                        <option value="FOR SALE">For Sale</option>
+                        <option value="WITHDRAWN">Withdrawn</option>
+                        <option value="SOLD">Sold</option>
+                    </select>
+                </div>
+                <br />
+                <br />
+                <button id="mainBtn" className="btn btn-info">Add</button>
             </form>
-            </div> 
-
-    </div>
-
-
-    )
+        </div>
+    );
 }
 
 export default WithdrawProperty;

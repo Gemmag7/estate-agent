@@ -105,7 +105,7 @@
       "bathroom": 1,
       "garden": 1,
       "sellerId": 3,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 3
     },
     {
@@ -121,14 +121,7 @@
       "id": 4
     },
     {
-      "address": "AAAAAAHHHHH",
-      "postcode": "HAD ENOUGH",
-      "type": "DETACHED",
-      "price": "40004",
-      "bedroom": "2",
-      "bathroom": "2",
-      "garden": false,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 5
     },
     {
@@ -139,62 +132,27 @@
       "bedroom": "1",
       "bathroom": "1",
       "garden": "",
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 6
     },
     {
-      "address": "1",
-      "postcode": "1",
-      "type": "1",
-      "price": "1",
-      "bedroom": "1",
-      "bathroom": "1",
-      "garden": null,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 7
     },
     {
-      "address": "AAAAAH",
-      "postcode": "HAD ENOUGH",
-      "type": "1",
-      "price": "1",
-      "bedroom": "2",
-      "bathroom": "2",
-      "garden": null,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 8
     },
     {
-      "address": "1",
-      "postcode": "2",
-      "type": "3",
-      "price": "4",
-      "bedroom": "5",
-      "bathroom": "6",
-      "garden": null,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 9
     },
     {
-      "address": "1",
-      "postcode": "2",
-      "type": "3",
-      "price": "4",
-      "bedroom": "5",
-      "bathroom": "6",
-      "garden": null,
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 10
     },
     {
-      "address": "6",
-      "postcode": "5",
-      "type": "4",
-      "price": "3",
-      "bedroom": "2",
-      "bathroom": "1",
-      "garden": "1",
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 11
     },
     {
@@ -256,15 +214,7 @@
       "id": 16
     },
     {
-      "address": "test",
-      "postcode": "tsdydu",
-      "type": "DETACHED",
-      "price": "38890004",
-      "bedroom": "2",
-      "bathroom": "2",
-      "garden": "1",
-      "sellerId": "2",
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "id": 17
     }
   ],

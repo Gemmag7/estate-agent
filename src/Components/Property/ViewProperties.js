@@ -92,7 +92,7 @@ function generatePropertyList()
                     onClick={() => DeleteProperties(X)}/>
                     <Link className='editLink' state={{properties: X}} to={`/property/${X.id}/edit`}>Update </Link>
                     {X.status === "FOR SALE" && (
-                                        <Link className='withdrawLink' to={`/property/${X.id}/withdraw`}>Withdraw</Link>
+                                        <Link className='withdrawLink' state={{properties:X}} to={`/property/${X.id}/withdraw`}>Withdraw</Link>
                     )}
                     </td>
                   
