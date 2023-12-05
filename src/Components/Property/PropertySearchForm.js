@@ -12,6 +12,7 @@ const PropertySearchForm = (props) => {
     const priceRef = useRef();
 
     const doSearch = () => {
+        console.log("IN DOSEARCH")
         searchHandler(
             {
                 type: typeRef.current.value,
@@ -21,6 +22,8 @@ const PropertySearchForm = (props) => {
                 price: priceRef.current.value,
             }
         );
+
+        console.log(searchHandler);
     };
     const doReset = () => {
         typeRef.current.value = "ANY";
