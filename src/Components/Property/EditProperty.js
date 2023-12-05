@@ -2,56 +2,52 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function EditProperty(props) {
-
     const { id } = useParams();
     const location = useLocation();
-    let navigate = useNavigate();
-console.log("PROPS: ",props.price)
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
-        id: id,
-        address: props.address,
-        postcode: props.postcode,
-        type: props.type,
-        price: props.price,
-        bedroom: props.bedroom,
-        bathroom: props.bathroom,
-        garden: props.garden,
-        sellerId: props.sellerId,
-        status: props.status,
+        id: "",
+        address: "",
+        postcode: "",
+        type: "",
+        price: "",
+        bedroom: "",
+        bathroom: "",
+        garden: "",
+        sellerId: "",
+        status: "",
     });
 
-    console.log("VALUES",values)
     useEffect(() => {
-        fetch(`http://localhost:3004/property/${id}`)
-        .then(res => {
+        if (location.state && location.state.property) {
+            const propertyData = location.state.property;
             setValues({
-                id: location.state.property.id,
-                address: location.state.property.address,
-                postcode: location.state.property.postcode,
-                type: location.state.property.type,
-                price: location.state.property.price,
-                bedroom: location.state.property.bedroom,
-                bathroom: location.state.property.bathroom,
-                garden: location.state.property.garden,
-                sellerId: location.state.property.sellerId,
-                status: location.state.property.status
-            })
-        }).catch( err => console.log(err))
-            
-           
-    }, []);
+                id: id,
+                address: propertyData.address,
+                postcode: propertyData.postcode,
+                type: propertyData.type,
+                price: propertyData.price,
+                bedroom: propertyData.bedroom,
+                bathroom: propertyData.bathroom,
+                garden: propertyData.garden,
+                sellerId: propertyData.sellerId,
+                status: propertyData.status,
+            });
+        } else {
+            // Fetch property details using the ID if necessary
+            fetch(`http://localhost:3004/property/${id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setValues(data);
+                })
+                .catch((err) => console.log(err));
+        }
+    }, [id, location.state]);
 
-        /**
-       * is in charge of when the garden select option is picked
-       * @param {*} e used to find the selected value
-       */
-        const handleSelectChange = (e) => {
-           
-            setValues({ ...values, garden: e.target.value });
-        };
-    const handleStatusChange = (e) => {
-        setValues({ ...values, status: e.target.value });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
     };
 
     const handleSubmit = (e) => {
@@ -65,20 +61,7 @@ console.log("PROPS: ",props.price)
         })
             .then((res) => res.json())
             .then((res) => {
-                setValues({ ...values, 
-                    id: id,
-                    address: values.address, 
-                    postcode: values.postcode, 
-                    type: values.type, 
-                    price: values.price, 
-                    bedroom: values.bedroom, 
-                    bathroom: values.bathroom, 
-                    garden: values.garden, 
-                    sellerId: values.sellerId,
-                    status: values.status 
-                });
                 navigate('/viewproperty');
-                
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -159,7 +142,7 @@ console.log("PROPS: ",props.price)
                     Garden: <select
                             id="gardenSelect"
                             className="form-control"
-                            onChange={handleSelectChange}
+                            onChange={handleChange}
                             value={values.garden}
                             name="gardenSelect"
                         >
@@ -173,7 +156,7 @@ console.log("PROPS: ",props.price)
                     <select
                         id="statusSelect"
                         className="form-control"
-                        onChange={handleStatusChange}
+                        onChange={handleChange}
                         value={values.status}
                         name="gardenSelect"
                     >

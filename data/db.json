@@ -106,7 +106,8 @@
       "garden": 1,
       "sellerId": 3,
       "status": "FOR SALE",
-      "id": 3
+      "id": 3,
+      "gardenSelect": "0"
     },
     {
       "address": "8 Hilltop, Ebbw Vale",
