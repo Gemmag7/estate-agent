@@ -1,0 +1,68 @@
+/* girly.css */
+
+/* Body and General Styling */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #ffe6f2; /* Light pink background */
+    color: #4d4d4d; /* Dark gray text */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Form Styling */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ff80bf' d='M10 0L0 20h20L10 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  .form-button {
+    background-color: #ff80bf; /* Pink button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #ffccff; /* Light pink on hover */
+  }
+  
+  /* Icons and Symbols */
+  .fa-home,
+  .fa-money-bill-wave,
+  .fa-bed,
+  .fa-bath,
+  .fa-tree {
+    color: #ff80bf; /* Pink icons */
+  }
+  
+  /* Button Icons */
+  .bi-arrow-left-circle,
+  .bi-search {
+    color: #fff; /* White icons */
+  }

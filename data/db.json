@@ -89,12 +89,13 @@
       "postcode": "SO1 2ME",
       "type": "APARTMENT",
       "price": 200000,
-      "bedroom": 1,
-      "bathroom": 1,
+      "bedroom": "2",
+      "bathroom": "4",
       "garden": 0,
       "sellerId": 1,
       "status": "SOLD",
-      "buyerId": 3
+      "buyerId": 3,
+      "gardenSelect": "FOR SALE"
     },
     {
       "address": "2 Welsh Street, Ebbw Vale",

@@ -23,8 +23,8 @@ function App() {
                 <Route path="/" element={<LandingPage/>}> {/*This is the root path*/}
                     <Route index element={<Property/>}/> {/*This is the default component shown in the <Outlet> tag */}
                     <Route path="property" element={<Property/>}/>
-                    <Route path="property/add" element={<AddProperty/>}/>
-                    <Route path ="seller" element={<ViewSellers/>}/>
+                    <Route path="/property/add" element={<AddProperty/>}/>
+                    <Route path ="/seller" element={<ViewSellers/>}/>
                     <Route path ="/seller/:id" element={<DeleteSeller/>}/>
                     {/**<Route path ="/seller/:id/edit" element={<EditSeller/>}/>*/}
                     <Route path ="/seller/add" element={<AddSeller/>}/>

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-function EditProperty(props) {
+function EditProperty() {
+    //Acessing the ID parameter from the URL
     const { id } = useParams();
+    //Accessing the current location
     const location = useLocation();
+    //Accessing the navigation function to redirect
     const navigate = useNavigate();
 
+    //State storage that holds all property details
     const [values, setValues] = useState({
         id: "",
         address: "",
@@ -20,8 +24,11 @@ function EditProperty(props) {
     });
 
     useEffect(() => {
+        //Checks if property data is available in the location state
         if (location.state && location.state.property) {
+            //Extracts the property data from the location state
             const propertyData = location.state.property;
+            //Setting the property data in state
             setValues({
                 id: id,
                 address: propertyData.address,
@@ -39,19 +46,24 @@ function EditProperty(props) {
             fetch(`http://localhost:3004/property/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
+                    //Set the fetched property data in the state
                     setValues(data);
                 })
                 .catch((err) => console.log(err));
         }
+        //Dependancy array to track changes in Id or location state
     }, [id, location.state]);
 
+    //Function to handle changes in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     };
 
+    //Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+        //Fetch call to the API to edit the data belonging to the selected property with Id  
         fetch(`http://localhost:3004/property/${id}`, {
             method: "PUT",
             headers: {
@@ -61,6 +73,7 @@ function EditProperty(props) {
         })
             .then((res) => res.json())
             .then((res) => {
+                //Navigates to the /viewproperty page after user has sucessfully edited a property
                 navigate('/viewproperty');
             })
             .catch((error) => {
@@ -71,6 +84,7 @@ function EditProperty(props) {
     return (
         <div>
             <h2>Edit Property Details:</h2>
+            {/*Form for editing property details */}
             <form onSubmit={handleSubmit}>
             <div>
                     Address:<input
@@ -154,14 +168,15 @@ function EditProperty(props) {
                 <div>
                     Status:
                     <select
+                    
                         id="statusSelect"
                         className="form-control"
                         onChange={handleChange}
                         value={values.status}
                         name="gardenSelect"
                     >
+                        <option disabled>Any</option>
                         <option value="FOR SALE">For Sale</option>
-                        <option value="WITHDRAWN">Withdrawn</option>
                         <option value="SOLD">Sold</option>
                     </select>
                 </div>
