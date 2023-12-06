@@ -6,7 +6,7 @@ import "./Property.css"
 
 // Passing an object into the function which is generated from the form for the properties table.
 // Properties form is as it says a property form, props is the properties of the object.
-const ViewProperties = (props)=> {
+const PropertySearch = (props)=> {
     
     const searchHandler = props.searchHandler;
     // Refs are used to get the values from the form, the property form method is called with the parameter of this.props
@@ -111,4 +111,4 @@ const ViewProperties = (props)=> {
         </form>);
 };
 
-export default ViewProperties;
+export default PropertySearch;
