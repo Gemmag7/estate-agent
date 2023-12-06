@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom"
-import './ViewProperty.css';
+import './Property.css';
 import PropertySearch from './PropertySearch';
 
 
-function ViewProperties(){
+function ViewProperties(props){
    
 
     
     const [searchResult, setSearchResult] = useState([]);
-    let [properties, setProperties] = useState([])
+    const [properties, setProperties] = useState([])
 useEffect(() =>{ generatePropertyList();
 }, []);
 
 
     
-function DeleteProperties(props){
+function handleDeleteProperty(property){
 
     const confirmed = window.confirm("Are you sure you want to delete?")
      if (confirmed){
-    fetch(`http://localhost:3004/property/${props.id}`, {
+    fetch(`http://localhost:3004/property/${property.id}`, {
       
         method:"DELETE", 
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({id: props.id}),
+        body: JSON.stringify({id: property.id}),
        
     }).then((res) => res.json());
     
@@ -34,24 +33,25 @@ function DeleteProperties(props){
 }
 };
 const searchHandler = (searchCriteria) => {
-    const filteredProperties = properties.filter(property =>
+    setSearchResult(properties.filter(property =>
         (searchCriteria.type === "ANY" || property.type === searchCriteria.type) &&
         (Number(property.bedroom) >= Number(searchCriteria.bedroom)) &&
         (Number(property.bathroom) >= Number(searchCriteria.bathroom)) &&
         (Number(property.garden) >= Number(searchCriteria.garden)) &&
         (Number(searchCriteria.price) === 0 || Number(property.price) <= Number(searchCriteria.price))
-    );
-    setSearchResult(filteredProperties);
-    console.log(filteredProperties)
-    console.log(searchResult)
+    ));
 };
+  
 
 function generatePropertyList()
 {
     fetch('http://localhost:3004/property')
     .then((res)=>res.json())
     .then((data)=>{
-        setProperties(data)});
+        setProperties(data);
+        setSearchResult(data);
+    })
+        ;
 }
 
     return(
@@ -65,8 +65,11 @@ function generatePropertyList()
         <br/>
         <Link className='addLink' state={{properties}} to={`/property/add`}>Add a Property</Link>
         </div>
-        
+        {console.log("  REsults: ",searchResult)}
         <div className='table-container'>
+            {searchResult.length > 0 &&(
+
+           
         <table >
         
             <tbody>
@@ -83,14 +86,13 @@ function generatePropertyList()
                 <th>Operations</th>
             </tr>
            
-            {searchResult.length > 0 && (
                 <div className="search-result">
-                    <h3>Search Results:</h3>
+                
                     
                         {searchResult.map((result, index) => (
                             <tr key={index}>
                
-              
+              {console.log("result", result.address)}
                     <td>{result.address}</td>
                     <td>{result.postcode}</td>
                     <td>{result.type}</td>
@@ -110,7 +112,7 @@ function generatePropertyList()
                     type='button'
                     id='deleteBtn' 
                     value="Delete" 
-                    onClick={() => DeleteProperties(result)}/>
+                    onClick={() => handleDeleteProperty(result)}/>
                     <Link className="editLink" state={{properties: result}} to={`/property/${result.id}/edit`}>Update </Link>
                    
                     {result.status === "FOR SALE" && (
@@ -127,9 +129,10 @@ function generatePropertyList()
   
                ))}
                </div>
-            )}
+            
             </tbody>
         </table>
+         )}
         </div>
        
        
@@ -138,3 +141,4 @@ function generatePropertyList()
 }
 
 export default ViewProperties;
+

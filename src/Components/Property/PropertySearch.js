@@ -1,33 +1,41 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./PropertySearch.css";
 
 const PropertySearch = (props) => {
-    const [type, setType] = useState("ANY");
-    const [bedrooms, setBedrooms] = useState(0);
-    const [bathrooms, setBathrooms] = useState(0);
-    const [garden, setGarden] = useState(0);
-    const [price, setPrice] = useState(0);
+  
 
     const searchHandler = props.searchHandler;
-    ///const searchResult = props.searchResult;
+    
+    const pTypeRef = useRef();
+    const bedroomNoRef = useRef();
+    const priceRef = useRef();
+    const bathroomNoRef = useRef();
+    const hasGardenRef = useRef();
 
+    /**
+     * 
+     */
     const doSearch = () => {
         searchHandler({
-            type,
-            bedroom: bedrooms,
-            bathroom: bathrooms,
-            garden,
-            price,
+            type: pTypeRef.current.value,
+            bedroom: bedroomNoRef.current.value,
+            bathroom: bathroomNoRef.current.value,
+            garden: hasGardenRef.current.value,
+            price: priceRef.current.value,
         });
+
+        console.log(pTypeRef)
+        console.log(searchHandler.current.value)
+        
     };
 
     const doReset = () => {
-        setType("ANY");
-        setBedrooms(0);
-        setBathrooms(0);
-        setGarden(0);
-        setPrice(0);
-        doSearch();
+        pTypeRef.current.value="Any";
+        bedroomNoRef.current.value = "0";
+        bathroomNoRef.current.value = "0";
+        hasGardenRef.current.value="Any";
+        priceRef.current.value= "0";
+        
     };
 
     return (
@@ -38,11 +46,7 @@ const PropertySearch = (props) => {
                     <label htmlFor="propertyType">
                         <i className="fas fa-home"></i>&nbsp;Type
                     </label>
-                    <select
-                        className="form-select"
-                        value={type}
-                        onChange={(e) => setType(e.target.value)}
-                    >
+                    <select className="form-select" ref={pTypeRef}>
                         <option value="ANY">Any</option>
                         <option value="DETACHED">Detached</option>
                         <option value="SEMI">Semi</option>
@@ -54,10 +58,7 @@ const PropertySearch = (props) => {
                         <i className="fas fa-money-bill-wave"></i>&nbsp;Price
                     </label>
                     <select
-                        className="form-select"
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    >
+                        className="form-select" ref={priceRef} >
                         <option value="0">Any</option>
                         <option value="50000">Up to £50,000</option>
                         <option value="100000">Up to £100,000</option>
@@ -70,11 +71,7 @@ const PropertySearch = (props) => {
                     <label htmlFor="numberOfBedrooms">
                         <i className="fas fa-bed"></i>&nbsp;Bedrooms
                     </label>
-                    <select
-                        className="form-select"
-                        value={bedrooms}
-                        onChange={(e) => setBedrooms(e.target.value)}
-                    >
+                    <select className="form-select" ref={bedroomNoRef}>
                         <option value="0">Any</option>
                         <option value="1">Minimum 1</option>
                         <option value="2">Minimum 2</option>
@@ -87,11 +84,7 @@ const PropertySearch = (props) => {
                     <label htmlFor="numberOfBathrooms">
                         <i className="fas fa-bath"></i>&nbsp;Bathrooms
                     </label>
-                    <select
-                        className="form-select"
-                        value={bathrooms}
-                        onChange={(e) => setBathrooms(e.target.value)}
-                    >
+                    <select className="form-select" ref={bathroomNoRef}>
                         <option value="0">Any</option>
                         <option value="1">Minimum 1</option>
                         <option value="2">Minimum 2</option>
@@ -102,12 +95,8 @@ const PropertySearch = (props) => {
                     <label htmlFor="numberOfGardens">
                         <i className="fas fa-tree"></i>&nbsp;Garden
                     </label>
-                    <select
-                        className="form-select"
-                        value={garden}
-                        onChange={(e) => setGarden(e.target.value)}
-                    >
-                        <option value="0">Any</option>
+                    <select className="form-select" ref={hasGardenRef}  >
+                        <option value="ANY">Any</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>

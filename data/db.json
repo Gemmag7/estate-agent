@@ -121,6 +121,18 @@
       "sellerId": 4,
       "status": "SOLD",
       "id": 4
+    },
+    {
+      "address": "1234 Test Street",
+      "postcode": "T35 T1nG",
+      "type": "Semi",
+      "price": "200000",
+      "bedroom": "12",
+      "bathroom": "2",
+      "garden": "1",
+      "sellerId": "4",
+      "status": "FOR SALE",
+      "id": 5
     }
   ],
   "buyer": [
