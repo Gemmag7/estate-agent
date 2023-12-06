@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./PropertySearch.css";
 
 const PropertySearch = (props) => {
@@ -24,8 +24,8 @@ const PropertySearch = (props) => {
             price: priceRef.current.value,
         });
 
-        console.log(pTypeRef)
-        console.log(searchHandler.current.value)
+        console.log(pTypeRef.current.value)
+        console.log(searchHandler.type)
         
     };
 
@@ -41,7 +41,7 @@ const PropertySearch = (props) => {
     return (
         <form>
             
-            <div className="row">
+            <div className="form-group">
                 <div className="form-group col">
                     <label htmlFor="propertyType">
                         <i className="fas fa-home"></i>&nbsp;Type
