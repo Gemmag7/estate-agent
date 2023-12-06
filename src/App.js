@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage/>}> {/*This is the root path*/}
-                    <Route index element={<Property/>}/> {/*This is the default component shown in the <Outlet> tag */}
+                    <Route index element={<ViewProperties/>}/> {/*This is the default component shown in the <Outlet> tag */}
                     <Route path="property" element={<Property/>}/>
                     <Route path="/property/add" element={<AddProperty/>}/>
                     <Route path ="/seller" element={<ViewSellers/>}/>
