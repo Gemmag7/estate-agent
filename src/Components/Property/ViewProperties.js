@@ -40,8 +40,11 @@ const searchHandler = (searchCriteria) => {
         (Number(property.garden) >= Number(searchCriteria.garden)) &&
         (Number(searchCriteria.price) === 0 || Number(property.price) <= Number(searchCriteria.price))
     ));
+    console.log(searchCriteria)
 };
   
+
+
 
 function generatePropertyList()
 {
@@ -49,7 +52,7 @@ function generatePropertyList()
     .then((res)=>res.json())
     .then((data)=>{
         setProperties(data);
-        setSearchResult(data);
+        //setSearchResult(data);
     })
         ;
 }
