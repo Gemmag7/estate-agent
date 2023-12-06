@@ -1,7 +1,7 @@
 //Importing all required imports for App.js to run
 import "./App.css";
 import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import LandingPage from "./Components/LandingPage/LandingPage";
 import AddSeller from "./Components/Seller/AddSeller";
@@ -16,10 +16,14 @@ import ViewSellers from "./Components/Seller/ViewSellers";
 import DeleteSeller from "./Components/Seller/DeleteSeller";
 import EditProperty from "./Components/Property/EditProperty";
 import Resubmit from "./Components/Property/Resubmit";
+import EditSeller from "./Components/Seller/EditSeller";
+import  Navbar  from "./Components/Navigation/Navbar";
 
 function App() {
     return (
-        <BrowserRouter>
+        
+        <Router>
+        <Navbar/>
             <Routes>
                 <Route path="/" element={<LandingPage/>}> {/*This is the root path*/}
                     <Route index element={<ViewProperties/>}/> {/*This is the default component shown in the <Outlet> tag */}
@@ -27,7 +31,7 @@ function App() {
                     <Route path="/property/add" element={<AddProperty/>}/>
                     <Route path ="/seller" element={<ViewSellers/>}/>
                     <Route path ="/seller/:id" element={<DeleteSeller/>}/>
-                    {/**<Route path ="/seller/:id/edit" element={<EditSeller/>}/>*/}
+                    <Route path ="/seller/:id/edit" element={<EditSeller/>}/>
                     <Route path ="/seller/add" element={<AddSeller/>}/>
                     <Route path="seller/:sellerId/property" element={<SellerProperty/>}/>
                     <Route path="buyer" element={<Buyer/>}/>
@@ -40,7 +44,8 @@ function App() {
                     {/*<Route path="*" element={<NoPage/>}/>*/}
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </Router>
+       
     );
 }
 

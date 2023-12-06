@@ -1,157 +1,4 @@
-/**.priceBlock {
-    border: 1px darkgreen solid;
-    border-radius: 5px;
-    padding: 5px;
-    margin-right: 20px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 15pt;
-    min-width: 150px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-}
 
-.priceBlock > span{
-    font-size: 13pt;
-    padding: 2px 10px 2px 10px;
-    border: 1px gray solid;
-    border-radius: 5px;
-}
-
-.priceBlock.withdrawn {
-    background-color: lightgray;
-    color: gray;
-}
-
-.priceBlock.withdrawn > span{
-    background-color: lightgray;
-}
-
-.priceBlock.forsale {
-    background-color: lightcyan;
-}
-
-.priceBlock.forsale > span{
-    background-color: green;
-    color: white;
-}
-
-.priceBlock.sold {
-    background-color: lightgoldenrodyellow;
-}
-
-.priceBlock.sold > span{
-    background-color: orange;
-    color: white;
-}
-
-.detailsBlock {
-    display: inline-block;
-    font-size: 12pt;
-}
-
-.detailsBlock > div:first-child {
-    font-weight: bold;
-}
-
-.detailsBlock i {
-    color: darkblue;
-    margin: 0 5px 0 0;
-}
-
-.detailsBlock i + span {
-    margin-right: 15px;
-}
-
-/*********************************************
-* Restyle the <ul>
-********************************************/
-
-/* Remove margins and padding from the ul element (unordered lis)  so that the list is flushed with the
- browser borders instead of leaving a gap 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-/* Each li element with the ul will hold a todo_item 
-ul li {
-  cursor: pointer;
-  padding: 12px;
-  list-style-type: none;
-  background: #eee;
-  font-size: 18px;
-}
-
-/* Set all odd list items to a different background colour (zebra-stripes)
-ul li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-ul li:hover {
-  background: pink;
-}
-
-/* When clicked on, change the background colour and strike out text 
-ul li.checked {
-background: #888;
-color: #fff;
-text-decoration: line-through;
-}
-
-#selectgroup {
-  padding: 8px;
-  font-size: 16px;
-  margin-bottom: 16px;
-  background-color: #ffccff; /* Light pink background 
-  border: 2px solid #ff69b4; /* Hot pink border 
-  color: #800080; /* Purple text color 
-}
- 
-/* Styles for the search button 
-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  background-color: #ff69b4; /* Hot pink button background 
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 16px;
-}
- 
-button:hover {
-  background-color: #ff1493; /* Darker pink on hover 
-}
- 
-/* Styles for the table 
-#table {
-  width: 100%;
-  border-collapse: collapse;
-}
- 
-#table th,
-#table td {
-  border: 1px solid #ffd1dc; /* Light pink border 
-  padding: 8px;
-  text-align: left;
-}
- 
-#txtheader {
-  background-color: #ff69b4; /* Hot pink table header background 
-  color: white;
-  font-weight: bold;
-}
- 
-/* Styles for table rows 
-#table tr:nth-child(even) {
-  background-color: #fff0f5; /* Light pink rows 
-}
- 
-#table tr:hover {
-  background-color: #ffe4e1; /* Darker pink on row hover 
-}*/
 
 body{
   font-family: 'Arial', sans-serif;
@@ -170,21 +17,6 @@ body{
 
 }
 
-ul{
-  list-style: none;
-  padding: 0;
-}
-li{
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ff80bf;
-  border-radius: 10px;
-}
-
-.price-block{
-  font-weight: bold;
-  margin-bottom: 10px;
-}
 
 @media screen and (max-width: 979px){
   .pageHeader{
@@ -196,54 +28,108 @@ li{
   }
 }
 
-.priceBlock > span{
-  font-size: 13pt;
-  padding: 2px 10px 2px 10px;
-  border: 1px gray solid;
+
+
+/* Form styles */
+.form-control {
+  width: 60%;
+  
+  border: 1px solid #FF69B4;
   border-radius: 5px;
 }
 
-.priceBlock.withdrawn {
-  background-color: lightgray;
-  color: gray;
-}
+  
+  tr:nth-child(even) {
+    background-color: #fce4ec;
+  }
+  
+  /* Delete button style */
+  input[id="deleteBtn"] {
+    background-color: #ff7675;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[id="deleteBtn"]:hover {
+    background-color: #d63031;
+  }
 
-.priceBlock.withdrawn > span{
-  background-color: lightgray;
-}
+  a.deleteLink{
+    background-color: #ff7675;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align:justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a.deleteLink:hover {
+    background-color: #d63031;
+  }
 
-.priceBlock.forsale {
-  background-color: lightcyan;
-}
+  a.editLink{
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align:justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a.editLink:hover {
+    background-color: #ff9800;
+  }
 
-.priceBlock.forsale > span{
-  background-color: green;
-  color: white;
-}
+  a.addLink{
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align:justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a.addLink:hover {
+    background-color: #009900;
+  }
 
-.priceBlock.sold {
-  background-color: lightgoldenrodyellow;
-}
-
-.priceBlock.sold > span{
-  background-color: orange;
-  color: white;
-}
-
-.detailsBlock {
-  display: inline-block;
-  font-size: 12pt;
-}
-
-.detailsBlock > div:first-child {
-  font-weight: bold;
-}
-
-.detailsBlock i {
-  color: darkblue;
-  margin: 0 5px 0 0;
-}
-
-.detailsBlock i + span {
-  margin-right: 15px;
-}
+  a.withdrawLink{
+    background-color: #fd94b4;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align:justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a.withdrawLink:hover {
+    background-color: #ff467e;
+  }
+ 

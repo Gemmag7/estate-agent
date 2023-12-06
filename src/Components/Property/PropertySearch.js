@@ -1,6 +1,6 @@
 import React ,{ useRef } from "react";
-import "./PropertySearch"
-import "./Property.css"
+import "./PropertySearch.css"
+
 
 
 
@@ -85,7 +85,7 @@ const PropertySearch = (props)=> {
                 </select>
             </div>
             <div className="form-group col">
-                <p htmlFor="numberOfBathrooms">  Bathrooms</p>
+                <p htmlFor="numberOfBathrooms"><i class="fa fa-bathtub"></i> Bathrooms</p>
                 <select className="form-select" ref={bathroomNoRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
@@ -102,10 +102,10 @@ const PropertySearch = (props)=> {
                 </select>
             </div>
             <div className="text-center">
-                <button type="button" className="btn btn-outline-success" onClick={searchProperties}>
-                <i className="bi bi-patch-check-fill"></i>&nbsp;Search</button>
+                <button type="button" className="btnSearch" onClick={searchProperties}>
+                <span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
                 &nbsp;
-                <button type="button" className="btn btn-outline-danger" onClick={clearValues}> 
+                <button type="button" className="btnClear" onClick={clearValues}> 
                 <i className="bi bi-x-octagon-fill"></i>&nbsp;Clear</button>
             </div>
             </div>

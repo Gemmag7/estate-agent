@@ -143,7 +143,7 @@ function WithdrawProperty(props) {
                         onChange={handleStatusChange}
                         value={values.status}
                     >
-                        <option aria-disabled>Withdraw Property...</option>
+                        <option aria-disabled={false}>Withdraw Property...</option>
                         
                         <option value="WITHDRAWN">Withdrawn</option>
                         

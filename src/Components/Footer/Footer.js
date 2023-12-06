@@ -1,14 +1,12 @@
-//import Navigation from "../Navigation/Navigation";
-
-function Footer() {
-    return (
-        <>
-        <div > 
-                
-             <h2>Footer</h2>
-                
-            </div>
-        </>
-        );
-    }
+import React from "react";
+import './Footer.css'
+function Footer (){
+    return(
+        <footer className="footer"  fixed-bottom>
+        <p>Footer</p>
+    </footer>
+    )
+   
+};
+ 
 export default Footer;

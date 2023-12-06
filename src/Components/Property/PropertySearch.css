@@ -11,7 +11,7 @@ p {
 
 /* Body background color */
 body {
-  background-color: #fce4ec; /* Light pink background */
+  background-color:#fcebf1;   /*#fce4ec;  Light pink background */
   border: #9955bb;
 }
 
@@ -29,26 +29,65 @@ label {
 }
 
 /* Buttons */
-.btn {
+.btnClear{
   color: #fff; /* White text color for buttons */
-  background-color: #ff69b4; /* Pink background for buttons */
-  border-color: #ff69b4; /* Pink border color for buttons */
+  background-color: #ff7675; /* Pink background for buttons */
+  /* border-color: #ff7675; Pink border color for buttons */
+  padding: 8px 12px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
 }
 
 /* Button hover effect */
-.btn:hover {
-  background-color: #ff1493; /* Darker pink background on hover */
-  border-color: #ff1493; /* Darker pink border color on hover */
+.btnClear:hover {
+  background-color: #d63031; /* Darker pink background on hover */
+  border-color: #d63031; /* Darker pink border color on hover */
 }
 
+.btnSearch{
+  background-color: #5cb85c;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align:justify;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btnSearch:hover {
+  background-color: #009900;
+}
 /* Icon colors */
-.fas, .bi {
-  color: #9955bb; /* Pink icon color */
+.fas, .fa,.bi {
+  color: #f12b6b; /* Pink icon color */
 }
-
+.pform {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ff80bf;
+  margin: 20px auto;
+  width: 100%;
+}
 .pform row{
   border: 2px solid #ff80bf;
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }

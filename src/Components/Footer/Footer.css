@@ -4,4 +4,8 @@
     color: #fff; /* White text */
     text-align: center;
     padding: 20px 0;
+    
+    width: 100%;
+    bottom: 0;
+    font-size: 25px;
   }

@@ -2,6 +2,7 @@ import  PropertySearch from "./PropertySearch";
 import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
+import "./ViewProperty.css"
 function Gardenvalue(props) {
 
     if (props.garden == 0){
@@ -126,14 +127,14 @@ function ViewProperties() {
                       <Table responsive="lg">
                       <thead>
                       <tr>
-                          <th>&nbsp;Type</th>
+                          <th><i class="bi bi-house-gear-fill"></i>&nbsp;Type</th>
                           <th className="Addclass"> <i className="bi bi-house"> </i> &nbsp;Address</th>
-                          <th> <i className="bi bi-cash-coin"></i>&nbsp;Price</th>
-                          <th> <i className="bi bi-loading"></i>&nbsp;Status</th>
+                          <th className="Addclass"> <i className="bi bi-cash-coin"></i>&nbsp;Price</th>
+                          <th className="Addclass"> <i className="bi bi-cash-coin"></i>&nbsp;Status</th>
                           <th> <i className="bi bi-bed"></i>&nbsp;Bedroom</th>
                           <th> <i className="bi bi-shower"></i>&nbsp;Bathroom</th>
                           <th> <i className="bi bi-tree"></i>&nbsp;Garden</th>
-                          <th>&nbsp;Operations</th>
+                          <th className="Addclass"><i class="fa fa-cogs"></i>&nbsp;Operations</th>
                           
                           
                           
@@ -153,17 +154,19 @@ function ViewProperties() {
                        <td>
 
                        </td>
-                        {item.status ==="WITHDRAWN" &&(
+                        {
+                        <td>
+                            {item.status ==="WITHDRAWN" &&(
                                         <Link className='withdrawLink' state={{properties:item}} to={`/property/${item.id}/resubmit`}>ReSubmit</Link>
                                     
-                    )
+                    )}</td>
                     }
                         <input 
                     type='button'
                     id='deleteBtn' 
                     value="Delete" 
                     onClick={() => handleDeleteProperty(item)}/>
-                    <Link className="editLink" state={{properties: item}} to={`/property/${item.id}/edit`}>Update </Link>
+                    <Link className="editLink" state={{properties: item}} to={`/property/${item.id}/edit`}>Update <i class="fa fa-edit"></i></Link>
                    
                     {item.status === "FOR SALE" && (
                                         <Link className='withdrawLink' state={{properties:item}} to={`/property/${item.id}/withdraw`}>Withdraw</Link>
