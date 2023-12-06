@@ -1,6 +1,7 @@
 import  PropertySearch from "./PropertySearch";
 import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
+import { Link } from "react-router-dom";
 function Gardenvalue(props) {
 
     if (props.garden == 0){
@@ -11,6 +12,24 @@ function Gardenvalue(props) {
          return <td>Yes</td>
     }
 }
+
+function handleDeleteProperty(property){
+
+    const confirmed = window.confirm("Are you sure you want to delete?")
+     if (confirmed){
+    fetch(`http://localhost:3004/property/${property.id}`, {
+      
+        method:"DELETE", 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id: property.id}),
+       
+    }).then((res) => res.json());
+    
+    ViewProperties();
+};
+};
 
 function GardenValueArray(props) {
     console.log(" The incoming value is "+props)
@@ -107,25 +126,52 @@ function ViewProperties() {
                       <Table responsive="lg">
                       <thead>
                       <tr>
+                          <th>&nbsp;Type</th>
                           <th className="Addclass"> <i className="bi bi-house"> </i> &nbsp;Address</th>
-                          <th> <i className="bi bi-tree"></i>&nbsp;Garden</th>
-                          <th> &nbsp;Status</th>
-                          <th> &nbsp;Bedroom</th>
-                          <th> &nbsp;Bathroom</th>
-                          <th> <i className="bi bi-house"> </i>&nbsp;Type</th>
                           <th> <i className="bi bi-cash-coin"></i>&nbsp;Price</th>
+                          <th> <i className="bi bi-loading"></i>&nbsp;Status</th>
+                          <th> <i className="bi bi-bed"></i>&nbsp;Bedroom</th>
+                          <th> <i className="bi bi-shower"></i>&nbsp;Bathroom</th>
+                          <th> <i className="bi bi-tree"></i>&nbsp;Garden</th>
+                          <th>&nbsp;Operations</th>
+                          
+                          
+                          
                       </tr>
                   </thead>
                   <tbody id="valuetable">
                       {data.map((item) => (
                        <tr key={item.id}>
+                        <td>{item.type}</td>
                        <td className="Addclass">{item.address}</td>
-                       <Gardenvalue garden={item.garden} />
+                       <td>{item.price}</td>
                        <td>{item.status}</td>
                        <td>{item.bedroom}</td>
                        <td>{item.bathroom}</td>
-                       <td>{item.type}</td>
-                       <td>{item.price}</td>
+                       <Gardenvalue garden={item.garden} />
+                       
+                       <td>
+
+                       </td>
+                        {item.status ==="WITHDRAWN" &&(
+                                        <Link className='withdrawLink' state={{properties:item}} to={`/property/${item.id}/resubmit`}>ReSubmit</Link>
+                                    
+                    )
+                    }
+                        <input 
+                    type='button'
+                    id='deleteBtn' 
+                    value="Delete" 
+                    onClick={() => handleDeleteProperty(item)}/>
+                    <Link className="editLink" state={{properties: item}} to={`/property/${item.id}/edit`}>Update </Link>
+                   
+                    {item.status === "FOR SALE" && (
+                                        <Link className='withdrawLink' state={{properties:item}} to={`/property/${item.id}/withdraw`}>Withdraw</Link>
+                                    
+                    )
+                    }
+
+                       
                        </tr>
                       ))}
                   </tbody>

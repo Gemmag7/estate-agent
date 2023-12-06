@@ -3,11 +3,10 @@
 }
 
 
-.form-select{
-  color: #9955bb;
-  border-color: #FFC0CB;
+p {
+  margin: 0 auto;
+  text-align:center;
 }
-
 /* PropertyForm.css */
 
 /* Body background color */
@@ -26,6 +25,7 @@ label {
   background-color: #fff; /* White dropdown background */
   color: #9955bb; /* Pink text color for dropdown options */
   border-color: #ff69b4; /* Pink border color for dropdowns */
+  width: 70%;
 }
 
 /* Buttons */
@@ -44,4 +44,11 @@ label {
 /* Icon colors */
 .fas, .bi {
   color: #9955bb; /* Pink icon color */
+}
+
+.pform row{
+  border: 2px solid #ff80bf;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
 }

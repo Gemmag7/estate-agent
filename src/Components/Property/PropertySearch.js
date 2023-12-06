@@ -70,6 +70,7 @@ const PropertySearch = (props)=> {
                     <option value="ANY">Any</option>
                     <option value="SOLD">SOLD</option>
                     <option value="FOR SALE">FOR SALE</option>
+                    <option value="WITHDRAWN">WITHDRAWN</option>
                 </select>
                 </div>
                 <div className="form-group col">

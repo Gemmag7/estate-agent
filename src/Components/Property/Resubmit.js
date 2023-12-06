@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 
-function WithdrawProperty(props) {
+function Resubmit(props) {
     const { id } = useParams();
    // const location = useLocation();
     const navigate = useNavigate();
@@ -47,7 +47,7 @@ function WithdrawProperty(props) {
         })
             .then((res) => res.json())
             .then((res) => {
-                setValues({ ...values, status: "WITHDRAWN" });
+                setValues({ ...values, status: "FOR SALE" });
                 navigate('/');
                 console.log("Updated status:", values.status);
             })
@@ -143,9 +143,8 @@ function WithdrawProperty(props) {
                         onChange={handleStatusChange}
                         value={values.status}
                     >
-                        <option aria-disabled>Withdraw Property...</option>
-                        
-                        <option value="WITHDRAWN">Withdrawn</option>
+                        <option aria-disabled>Resubmit Property...</option>
+                        <option value="FOR SALE">For Sale</option>
                         
                     </select>
                 </div>
@@ -157,4 +156,4 @@ function WithdrawProperty(props) {
     );
 }
 
-export default WithdrawProperty;
+export default Resubmit;
