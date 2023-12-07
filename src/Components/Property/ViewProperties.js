@@ -116,17 +116,17 @@ function ViewProperties() {
             <PropertySearch searchHandler={searchHandler} />
         </div>
             <div className="PropertyApp">
-                <Table responsive="lg">
+                <Table responsive="lg" style={{borderRadius: "14px"}}>
                     <thead>
-                        <tr style={{ backgroundColor: "rgb(255, 192, 203)" }}>
-                            <th><i class="bi bi-house-gear-fill"></i>&nbsp;Type</th>
-                            <th className="Addclass"> <i className="bi bi-house"> </i> &nbsp;Address</th>
-                            <th className="Addclass"> <i className="bi bi-cash-coin"></i>&nbsp;Price</th>
-                            <th className="Addclass"> <i className="bi bi-cash-coin"></i>&nbsp;Status</th>
-                            <th> <i className="bi bi-bed"></i>&nbsp;Bedroom</th>
-                            <th> <i className="bi bi-shower"></i>&nbsp;Bathroom</th>
-                            <th> <i className="bi bi-tree"></i>&nbsp;Garden</th>
-                            <th><i class="fa fa-cogs"></i>&nbsp;Operations</th>
+                        <tr style={{ backgroundColor: "rgb(255, 192, 203)"}}>
+                            <th><i class="fa fa-home"></i>&nbsp;Type</th>
+                            <th className="Addclass"><i className="fa fa-home"> </i> &nbsp;Address</th>
+                            <th ><i className="fa fa-money" ></i>&nbsp;Price</th>
+                            <th><i className="fa fa-check-circle" style={{margin: "0 auto", textAlign:"left"}}></i>&nbsp;Status</th>
+                            <th><i className="fa fa-bed" style={{margin: "0 auto", textAlign:"left"}}></i>&nbsp;Bedroom</th>
+                            <th><i className="fa fa-bathtub" style={{margin: "0 auto", textAlign:"left"}}></i>&nbsp;Bathroom</th>
+                            <th><i className="fa fa-tree" style={{margin: "0", textAlign:"left"}} ></i>&nbsp;Garden</th>
+                            <th><i className="fa fa-cogs"></i>&nbsp;Operations</th>
 
 
 
@@ -146,7 +146,7 @@ function ViewProperties() {
                                     {
                                         <td>
                                             {item.status === "WITHDRAWN" && (
-                                                <Link className='withdrawLink' style={{ marginTop: "4px" }} state={{ properties: item }} to={`/property/${item.id}/resubmit`}>ReSubmit</Link>
+                                                <Link className='withdrawLink' style={{ marginTop: "4px" }} state={{ properties: item }} to={`/property/${item.id}/resubmit`}>Resubmit</Link>
 
                                             )}</td>
                                     }
@@ -159,7 +159,7 @@ function ViewProperties() {
                                         onClick={() => handleDeleteProperty(item)} />
                                         
                                         
-                                    <Link className="editLink" state={{ properties: item }} to={`/property/${item.id}/edit`}>Update <i class="fa fa-edit"></i></Link>
+                                    <Link className="editLink" state={{ properties: item }} to={`/property/${item.id}/edit`}>Update</Link>
 
                                     {item.status === "FOR SALE" && (
                                         <Link className='withdrawLink' state={{ properties: item }} to={`/property/${item.id}/withdraw`}>Withdraw</Link>

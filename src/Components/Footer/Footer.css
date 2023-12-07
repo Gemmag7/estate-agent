@@ -6,6 +6,7 @@ footer
   font-size:15px;
   line-height:24px;
   color:palevioletred;
+  font-weight: bold;
   width: 100%;
   bottom: 0;
   text-align: center;
@@ -47,11 +48,12 @@ footer
 }
 .footer-links a
 {
-  color:#737373
+  color:palevioletred;
+  font-weight: bold;
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:#3366cc;
+  color:#ff7675;
   text-decoration:none;
 }
 .footer-links.inline li

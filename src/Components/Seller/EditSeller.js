@@ -59,6 +59,7 @@ function EditSeller(props){
         <div className="d-flex w-100 vh-50 justify-content-center align-items-center">
             <div className="w-50 border bg-secondary text-white p-5">
                 <form onSubmit={handleSubmit} >
+                    <h1></h1>
                     <div>
                         
                         First Name:<input

@@ -23,7 +23,7 @@ label {
 /* Form select dropdowns */
 .form-select {
   background-color: #fff; /* White dropdown background */
-  color: #9955bb; /* Pink text color for dropdown options */
+  color: #f12b6b; /* Pink text color for dropdown options */
   border-color: #ff69b4; /* Pink border color for dropdowns */
   width: 70%;
 }
@@ -63,6 +63,9 @@ label {
   text-decoration: none;
 }
 
+h1{
+  color: #f12b6b;
+}
 .btnSearch:hover {
   background-color: #009900;
 }
@@ -74,7 +77,7 @@ label {
   font-family: 'Arial', sans-serif;
   padding: 20px;
   border-radius: 10px;
-  background-color: #FD9FCD;
+  background-color: #ffc2e5;;
   margin: 20px auto;
   width: 100%;
 }

@@ -122,7 +122,7 @@ body{
   }
 
   a.withdrawLink{
-    background-color: #fd94b4;
+    background-color: paleturquoise;
     border: none;
     color: white;
     padding: 8px 12px;
@@ -137,6 +137,6 @@ body{
   }
   
   a.withdrawLink:hover {
-    background-color: #ff467e;
+    background-color: turquoise;
   }
  

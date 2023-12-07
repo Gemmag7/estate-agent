@@ -182,7 +182,8 @@ function EditProperty() {
                 </div>
                 <br />
                 <br />
-                <button id="mainBtn"  className="btn btn-info" >Update</button>
+                <button id="mainBtn"  style={{marginLeft: "2px"}}className="btn btn-info" >Update</button>
+                <button id="cancelBtn"  className="btn btn-info" onClick={() => navigate('/')}>Cancel</button>
             </form>
         </div>
     );

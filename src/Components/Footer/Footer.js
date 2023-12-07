@@ -10,7 +10,7 @@ function Footer (){
         <div className="row">
           <div className="col-sm-12 col-md-6">
             <h6>About</h6>
-            <p className="text-justify">QA Real Estate<i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            <p className="text-justify">QA Real Estate is an inovative  and PINK website that hepls to provide the most pink website for houses.QA Real Estate is an inovative  and PINK website that hepls to provide the most pink website for houses.QA Real Estate is an inovative  and PINK website that hepls to provide the most pink website for houses.</p>
           </div>
 
       
@@ -23,7 +23,7 @@ function Footer (){
             </ul>
           </div>
         </div>
-        
+        <hr/>
       </div>
       <br/>
       <div className="container">

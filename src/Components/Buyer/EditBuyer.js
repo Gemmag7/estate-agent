@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import '../Seller/Seller.css'
+import ViewBuyers from "./ViewBuyers";
 function EditBuyer(props){
 
     let navigate = useNavigate();
@@ -59,6 +60,7 @@ function EditBuyer(props){
         <div className="d-flex w-100 vh-50 justify-content-center align-items-center">
             <div className="w-50 border bg-secondary text-white p-5">
                 <form onSubmit={handleSubmit} >
+                    <h1>Edit Buyer:</h1>
                     <div>
                         
                         First Name:<input
@@ -118,7 +120,8 @@ function EditBuyer(props){
                     </div>
                     <br/>
                     <br/>
-                    <button id="mainBtn"  className="btn btn-info" >Update</button>
+                    <button id="mainBtn" style={{marginRight: "2px"}} className="btn btn-info" >Update</button>
+                    <button id="cancelBtn"  className="btn btn-info" onClick={() => navigate('/buyer')}>Cancel</button>
                 </form>
                 </div> 
 

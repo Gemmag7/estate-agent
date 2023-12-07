@@ -45,7 +45,7 @@ const PropertySearch = (props)=> {
             <div className="row">
                 <h1>Property Search and Bookings</h1>
                 <div className="form-group col">
-                <p htmlFor="formType"> <i className="bi bi-house"></i> Type</p>
+                <p htmlFor="formType"> <i className="fa fa-home " ></i> Type</p>
                 <select  className="form-select" id="type" ref={pTypeRef} >
                     <option value="ANY">Any</option>
                     <option value="DETACHED">Detached</option>
@@ -54,7 +54,7 @@ const PropertySearch = (props)=> {
                 </select>
                 </div>
                 <div className="form-group col">
-                <p htmlFor="formPrice"> <i className="bi bi-cash-coin"></i>Price</p>
+                <p htmlFor="formPrice"> <i className="fa fa-money"></i>Price</p>
                 <select  className="form-select" ref={priceRef}>
                     <option value="0">Any</option>
                     <option value="50000">Up to 50000</option>
@@ -65,7 +65,7 @@ const PropertySearch = (props)=> {
                 </select>
                 </div>
                 <div className="form-group col">
-                <p htmlFor="formStatus"> Status</p>
+                <p htmlFor="formStatus"><i class="fa fa-cart-plus"></i>Status</p>
                 <select  className="form-select" ref={statusRef}>
                     <option value="ANY">Any</option>
                     <option value="SOLD">SOLD</option>
@@ -74,7 +74,7 @@ const PropertySearch = (props)=> {
                 </select>
                 </div>
                 <div className="form-group col">
-                <p htmlFor="numberOfBedrooms">Bedrooms</p>
+                <p htmlFor="numberOfBedrooms"><i class="fa fa-bed"></i>Bedrooms</p>
                 <select  className="form-select" ref={bedroomNoRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
@@ -94,7 +94,7 @@ const PropertySearch = (props)=> {
                 </select>
             </div>
             <div className="form-group col">
-                <p htmlFor="numberOfGardens"> <i className="bi bi-tree"></i> Garden</p>
+                <p htmlFor="numberOfGardens"> <i className="fa fa-tree"></i> Garden</p>
                 <select className="form-select" ref={hasGardenRef}>
                     <option value="ANY">Any</option>
                     <option value="1">Yes</option>
@@ -103,10 +103,10 @@ const PropertySearch = (props)=> {
             </div>
             <div className="text-center">
                 <button type="button" className="btnSearch" onClick={searchProperties}>
-                <span class="glyphicon glyphicon-search"></span>&nbsp;Search</button>
+                <i className="fa fa-search" style={{color: "#fff"}}></i>&nbsp;Search</button>
                 &nbsp;
                 <button type="button" className="btnClear" onClick={clearValues}> 
-                <i className="bi bi-x-octagon-fill"></i>&nbsp;Clear</button>
+                <i className="fa fa-search" style={{color: "#fff"}}></i>&nbsp;Clear</button>
             </div>
             </div>
         </form>);
