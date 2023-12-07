@@ -61,14 +61,6 @@
       "id": 10
     },
     {
-      "id": 11,
-      "firstName": "anna",
-      "surname": "smith",
-      "address": "",
-      "postcode": "",
-      "phone": ""
-    },
-    {
       "id": 12,
       "firstName": "Anna",
       "surname": "smiths",
@@ -129,6 +121,18 @@
       "sellerId": 4,
       "status": "SOLD",
       "id": 4
+    },
+    {
+      "address": "123 new street",
+      "postcode": "T35 T1ng",
+      "type": "SEMI",
+      "price": "200000",
+      "bedroom": "5",
+      "bathroom": "2",
+      "garden": "1",
+      "sellerId": "4",
+      "status": "FOR SALE",
+      "id": 5
     }
   ],
   "buyer": [

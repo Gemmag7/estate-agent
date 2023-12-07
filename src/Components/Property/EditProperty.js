@@ -74,7 +74,7 @@ function EditProperty() {
             .then((res) => res.json())
             .then((res) => {
                 //Navigates to the /viewproperty page after user has sucessfully edited a property
-                navigate('/viewproperty');
+                navigate('/');
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -82,7 +82,8 @@ function EditProperty() {
     };
 
     return (
-        <div>
+        <div className="d-flex w-100 vh-50 justify-content-center align-items-center">
+            <div className="w-50 border bg-secondary text-white p-5">
             <h2>Edit Property Details:</h2>
             {/*Form for editing property details */}
             <form onSubmit={handleSubmit}>
@@ -182,9 +183,10 @@ function EditProperty() {
                 </div>
                 <br />
                 <br />
-                <button id="mainBtn"  style={{marginLeft: "2px"}}className="btn btn-info" >Update</button>
-                <button id="cancelBtn"  className="btn btn-info" onClick={() => navigate('/')}>Cancel</button>
+                <button id="mainBtn"  style={{marginRight: "2px"}}className="btn btn-info" >Update</button>
+                <button id="cancelBtn"  className="btn btn-info" style={{backgroundColor: "gray"}} onClick={() => navigate('/')}>Cancel</button>
             </form>
+        </div>
         </div>
     );
 }

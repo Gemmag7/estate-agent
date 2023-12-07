@@ -11,7 +11,9 @@ useEffect(() =>{ generateSellerList();
     
 function DeleteSeller(X){
 
-   // let {id} = useParams()
+   
+    const confirmed = window.confirm("Are you sure you want to delete?")
+    if (confirmed) {
      fetch(`http://localhost:3004/seller/${X.id}`, {
       
         method:"DELETE", 
@@ -23,7 +25,8 @@ function DeleteSeller(X){
     }).then((res) => res.json());
     
     generateSellerList()
-}
+};
+};
 
 function EditSeller(X){
     let editBtn = document.getElementById("editBtn")

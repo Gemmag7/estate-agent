@@ -159,7 +159,7 @@ function AddProperty(){
                     <div>
                     Garden:  <select
                             id="gardenSelect"
-                            className="form-select"
+                            className="form-control"
                             onChange={handleSelectChange}
                             value={property.garden}
                         >

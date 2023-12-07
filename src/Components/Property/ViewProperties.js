@@ -11,9 +11,10 @@ function ViewProperties() {
         if (props.garden == 0) {
             return <td>No</td>
         }
-        else {
+        else{ 
             return <td>Yes</td>
         }
+       
     }
     function handleDeleteProperty(property) {
 
@@ -33,19 +34,23 @@ function ViewProperties() {
         };
     };
 
+        
     function GardenValueArray(props) {
-        console.log(" The incoming value is " + props)
-        switch (props) {
-            case 0:
-                return "No"
-                break;
-            case 1:
-                return "Yes"
-                break;
-            default:
-                return "Yes"
+       // console.log(" The incoming value is "+props)
+        switch(props)
+        {
+        case 0:
+            return "No"
+        break;
+        case 1:
+            return "Yes"
+        break;
+        default:
+            return "Yes"
         }
     }
+    
+    
     
     function generateProperties(){
         fetch("http://localhost:3004/property")
@@ -55,16 +60,16 @@ function ViewProperties() {
     }
     // Declare a new state variable, which we'll call "searchvalue" the state of search value it recieved 
     //from the form then when we will use it to filter the item
-    let searchvalue = useState({});
+    let searchvalue = useState({})
     const searchHandler = (search) => {
-        searchvalue = search;
-        if (search.bedroom || search.bathroom != 0) {
+        searchvalue=search;
+     if (Number(search.bedroom) !=0|| Number(search.bathroom) != 0) {
             // getting the table id for manipulation then running the custom search method with the table builder
-            var table = document.getElementById('valuetable')
+            const table = document.getElementById('valuetable')
             while (table.hasChildNodes()) {
                 table.removeChild(table.lastChild);
             }
-            tablebuilderwithsearch(searchvalue)
+            tablebuilderwithsearch(searchvalue);
         }
     };
     // Fetch method to get data from the json and then display it as data
@@ -101,7 +106,7 @@ function ViewProperties() {
     function rowbuilder(item) {
         var tableId = document.getElementById('valuetable')
         var newrow = tableId.insertRow(0)
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < item.length; i++) {
           //  console.log(" The row value is " + item[i])
             var newcell = newrow.insertCell(i)
             newcell.innerHTML = item[i]

@@ -1,5 +1,7 @@
 import React ,{ useRef } from "react";
 import "./PropertySearch.css"
+import { useNavigate } from "react-router-dom";
+import ViewProperties from "./ViewProperties";
 
 
 
@@ -31,19 +33,22 @@ const PropertySearch = (props)=> {
         );
     };
     let clearValues = () => {
+      
         pTypeRef.current.value = "ANY";
         statusRef.current.value = "ANY";
         priceRef.current.value = 0;
         bedroomNoRef.current.value = 0;
         bathroomNoRef.current.value = 0;
-        hasGardenRef.current.value = 0;
+        hasGardenRef.current.value = "ANY";
 
+        
     };
     return (
         
         <form className="pform">
+            <h1>Property Search and Bookings</h1>
             <div className="row">
-                <h1>Property Search and Bookings</h1>
+                
                 <div className="form-group col">
                 <p htmlFor="formType"> <i className="fa fa-home " ></i> Type</p>
                 <select  className="form-select" id="type" ref={pTypeRef} >
@@ -104,9 +109,10 @@ const PropertySearch = (props)=> {
             <div className="text-center">
                 <button type="button" className="btnSearch" onClick={searchProperties}>
                 <i className="fa fa-search" style={{color: "#fff"}}></i>&nbsp;Search</button>
-                &nbsp;
-                <button type="button" className="btnClear" onClick={clearValues}> 
-                <i className="fa fa-search" style={{color: "#fff"}}></i>&nbsp;Clear</button>
+                
+                <button type="button" className="btnClear" onClick={clearValues} > 
+                <i className="fa fa-times" style={{color: "#fff"}}></i>&nbsp;Clear</button>
+                
             </div>
             </div>
         </form>);

@@ -56,10 +56,10 @@ function EditSeller(props){
    
     }
     return(
-        <div className="d-flex w-100 vh-50 justify-content-center align-items-center">
+        <div className="d-flex w-100 .mh-100 justify-content-center align-items-center">
             <div className="w-50 border bg-secondary text-white p-5">
                 <form onSubmit={handleSubmit} >
-                    <h1></h1>
+                    <h1>Edit Seller: </h1>
                     <div>
                         
                         First Name:<input
@@ -119,7 +119,8 @@ function EditSeller(props){
                     </div>
                     <br/>
                     <br/>
-                    <button id="mainBtn"  className="btn btn-info" >Update</button>
+                    <button id="mainBtn"  className="btn btn-info" style={{marginRight: "2px"}}>Update</button>
+                    <button id="cancelBtn"  className="btn btn-info" style={{backgroundColor:"#c7c7c7"}} onClick={() => navigate('/seller')}>Cancel</button>
                 </form>
                 </div> 
 

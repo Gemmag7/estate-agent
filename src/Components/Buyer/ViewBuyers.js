@@ -11,6 +11,9 @@ useEffect(() =>{ generateBuyerList();
 function DeleteBuyer(X){
 
    // let {id} = useParams()
+   
+   const confirmed = window.confirm("Are you sure you want to delete?")
+   if (confirmed) {
      fetch(`http://localhost:3004/buyer/${X.id}`, {
       
         method:"DELETE", 
@@ -23,6 +26,7 @@ function DeleteBuyer(X){
     
     generateBuyerList()
 }
+};
 
 function EditBuyer(X){
     let editBtn = document.getElementById("editBtn")
