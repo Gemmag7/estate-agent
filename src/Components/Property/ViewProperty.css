@@ -8,14 +8,14 @@ body{
   padding: 0;
 }
 
-.pageHeader{
+/*.pageHeader{
   font-size: 1.5rem;
   text-align: center;
   padding: 20px;
   background-color: #ff80bf;
   color: #9955bb;
 
-}
+}*/
 
 
 @media screen and (max-width: 979px){
@@ -38,7 +38,9 @@ body{
   border-radius: 5px;
 }
 
-  
+  tr{
+    justify-content: center;
+  }
   tr:nth-child(even) {
     background-color: #fce4ec;
   }
@@ -55,7 +57,11 @@ body{
     font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
+
+  
   }
+
+
   
   input[id="deleteBtn"]:hover {
     background-color: #d63031;
@@ -127,6 +133,7 @@ body{
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    margin-top: 4px;
   }
   
   a.withdrawLink:hover {
