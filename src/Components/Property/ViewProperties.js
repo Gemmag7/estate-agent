@@ -84,9 +84,9 @@ function ViewProperties() {
                             if (Number(item.bathroom) >= Number(searchvalue.bathroom)) {
                                 if (Number(item.garden) >= Number(searchvalue.garden)) {
                                     let gardenvalue = GardenValueArray(Number(item.garden))
-                                    console.log(" The garden value is " + gardenvalue)
+                                   // console.log(" The garden value is " + gardenvalue)
                                     let itemArray = [item.address, gardenvalue, item.status, item.bedroom, item.bathroom, item.type, item.price]
-
+                                    console.log(itemArray)
                                     rowbuilder(itemArray);
                                 }
                             }
@@ -102,7 +102,7 @@ function ViewProperties() {
         var tableId = document.getElementById('valuetable')
         var newrow = tableId.insertRow(0)
         for (let i = 0; i < 7; i++) {
-            console.log(" The row value is " + item[i])
+          //  console.log(" The row value is " + item[i])
             var newcell = newrow.insertCell(i)
             newcell.innerHTML = item[i]
         }
