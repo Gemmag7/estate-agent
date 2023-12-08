@@ -10,6 +10,7 @@ const PropertySearchForm = (props) => {
     const bathroomsRef = useRef();
     const gardenRef = useRef();
     const priceRef = useRef();
+    const statusRef = useRef();
 
     const doSearch = () => {
         console.log("IN DOSEARCH")
@@ -20,10 +21,11 @@ const PropertySearchForm = (props) => {
                 bathroom: bathroomsRef.current.value,
                 garden: gardenRef.current.value,
                 price: priceRef.current.value,
+                status: statusRef.current.value
             }
         );
 
-        console.log(searchHandler);
+        
     };
     const doReset = () => {
         typeRef.current.value = "ANY";
@@ -31,11 +33,14 @@ const PropertySearchForm = (props) => {
         bathroomsRef.current.value = 0;
         gardenRef.current.value = 0;
         priceRef.current.value = 0;
-
+        statusRef.current.value = 0;
         doSearch();
     };
 
-    return (<form>
+    return (
+        <form className="pform">
+        <h1>Property Search and Bookings</h1>
+        <div className="row">
         <div className="row">
             <div className="form-group col">
                 <label htmlFor="propertyType" ><i class="fas fa-home"></i>&nbsp;Type</label>
@@ -57,6 +62,15 @@ const PropertySearchForm = (props) => {
                     <option value="400000">Up to £400,000</option>
                 </select>
             </div>
+            <div className="form-group col">
+                <label htmlFor="propertyStatus" ><i class="fa fa-cart-plus"></i>Status</label>
+                <select  className="form-select" ref={statusRef}>
+                    <option value="0">Any</option>
+                    <option value="SOLD">SOLD</option>
+                    <option value="FOR SALE">FOR SALE</option>
+                    <option value="WITHDRAWN">WITHDRAWN</option>
+                </select>
+                </div>
             <div className="form-group col">
                 <label htmlFor="numberOfBedrooms"><i class="fas fa-bed"></i>&nbsp;Bedrooms</label>
                 <select className="form-select" ref={bedroomsRef}>
@@ -86,15 +100,15 @@ const PropertySearchForm = (props) => {
                 </select>
             </div>
         </div>
-        <div className="text-end">
-            <button type="button" className="btn btn-warning" onClick={doReset}>
-                <i className="bi bi-arrow-left-circle"></i>&nbsp;Clear
-            </button>
-            &nbsp;
-            <button type="button" className="btn btn-primary" onClick={doSearch}>
-                <i className="bi bi-search"></i>&nbsp;Find Properties
-            </button>
-        </div>
+        <div className="text-center">
+                <button type="button" className="btnSearch" onClick={doSearch}>
+                <i className="fa fa-search" style={{color: "#fff"}}></i>&nbsp;Search</button>
+                
+                <button type="button" className="btnClear" onClick={doReset} > 
+                <i className="fa fa-times" style={{color: "#fff"}}></i>&nbsp;Clear</button>
+                
+            </div>
+            </div>
     </form>);
 };
 

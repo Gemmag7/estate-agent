@@ -95,3 +95,26 @@ h1{
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+@media screen and (max-width: 979px){
+  .btnClear{
+    color: #fff; /* White text color for buttons */
+    background-color: #ff7675; /* Pink background for buttons */
+    /* border-color: #ff7675; Pink border color for buttons */
+    padding: 4px 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 4px;
+    margin-bottom: 4px;
+  }
+  
+  /* Button hover effect */
+  .btnClear:hover {
+    background-color: #d63031; /* Darker pink background on hover */
+    border-color: #d63031; /* Darker pink border color on hover */
+  }
+}

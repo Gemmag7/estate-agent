@@ -12,20 +12,24 @@
 
 /* Body background color */
 body {
-    background-color: #fce4ec; /* Light pink background */
-    border: #9955bb;
+    background-color:#fcebf1;   /*#fce4ec;  Light pink background */
+  border: #9955bb;
+  
 }
 
 /* Form labels */
 label {
-    color: #9955bb;; /* Pink text color for labels */
+    color: #f12b6b;; /* Pink text color for labels */
 }
+
+
 
 /* Form select dropdowns */
 .form-select {
     background-color: #fff; /* White dropdown background */
-    color: #9955bb; /* Pink text color for dropdown options */
-    border-color: #ff69b4; /* Pink border color for dropdowns */
+  color: #f12b6b; /* Pink text color for dropdown options */
+  border-color: #ff69b4; /* Pink border color for dropdowns */
+  width: 100%;
 }
 
 /* Buttons */
@@ -41,7 +45,7 @@ label {
     border-color: #ff1493; /* Darker pink border color on hover */
 }
 
-/* Icon colors */
+/* Icon colors
 .fas, .bi {
-    color: #9955bb; /* Pink icon color */
-}
+    color: #9955bb; /* Pink icon color 
+}*/

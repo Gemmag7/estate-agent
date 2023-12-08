@@ -63,7 +63,7 @@ function generateBuyerList()
         <Link className='addLink' state={{buyers}} to={`/buyer/add`}>Create +</Link>
         <table>
             <tbody>
-            <tr>
+            <tr style={{ backgroundColor: '#FFC0CB', color: '#fff' }}>
                 <th>UserID </th>
                 <th>First Name</th>
                 <th>Surname</th>

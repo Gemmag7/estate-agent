@@ -1,6 +1,7 @@
 import React ,{ useRef } from "react";
-import "./PropertySearch.css"
+import "./PropertySearch.css";
 import { useNavigate } from "react-router-dom";
+//import Property from "./Property";
 import ViewProperties from "./ViewProperties";
 
 
@@ -31,20 +32,23 @@ const PropertySearch = (props)=> {
                 garden: hasGardenRef.current.value
             }
         );
+
+        console.log(searchHandler);
     };
     let clearValues = () => {
       
         pTypeRef.current.value = "ANY";
-        statusRef.current.value = "ANY";
+        statusRef.current.value = 0;
         priceRef.current.value = 0;
         bedroomNoRef.current.value = 0;
         bathroomNoRef.current.value = 0;
-        hasGardenRef.current.value = "ANY";
+        hasGardenRef.current.value = 0;
 
+        searchProperties();
         
     };
     return (
-        
+        <>
         <form className="pform">
             <h1>Property Search and Bookings</h1>
             <div className="row">
@@ -115,7 +119,8 @@ const PropertySearch = (props)=> {
                 
             </div>
             </div>
-        </form>);
+        </form>
+        </>);
 };
 
 export default PropertySearch;
