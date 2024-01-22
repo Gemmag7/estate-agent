@@ -24,7 +24,7 @@ const Buyer = (props) => {
     const buyerAddHandler = (newBuyer) => {
         setSaving(true);
 
-        fetch("http://localhost:3004/buyer", {
+        fetch("https://localhost:7091/Buyer", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBuyer)
@@ -44,7 +44,7 @@ const Buyer = (props) => {
 
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:3004/buyer")
+        fetch("https://localhost:7091/Buyer")
             // get the JSON content from the response
             .then((response) => {
                 if (!response.ok) {

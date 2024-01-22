@@ -13,7 +13,7 @@ const BuyerSelector = (props) => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:3004/buyer")
+        fetch("https://localhost:7091/Buyer")
         // get the JSON content from the response
         .then((response) => {
             if (!response.ok) {

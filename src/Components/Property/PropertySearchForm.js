@@ -1,13 +1,13 @@
 import React, {useRef} from "react";
 import "./PropertyForm.css";
 
-const PropertySearchForm = (props) => {
+const PropertySearchForm = ({searchHandler}) => {
 
-    const searchHandler = props.searchHandler;
+    //const searchHandler = props.searchHandler;
 
     const typeRef = useRef();
-    const bedroomsRef = useRef();
-    const bathroomsRef = useRef();
+    const numberOfBedroomsRef = useRef();
+    const numberOfBathroomsRef = useRef();
     const gardenRef = useRef();
     const priceRef = useRef();
     const statusRef = useRef();
@@ -17,23 +17,25 @@ const PropertySearchForm = (props) => {
         searchHandler(
             {
                 type: typeRef.current.value,
-                bedroom: bedroomsRef.current.value,
-                bathroom: bathroomsRef.current.value,
+                numberOfBedroomsRef: numberOfBedroomsRef.current.value,
+                numberOfBathroomsRef: numberOfBathroomsRef.current.value,
                 garden: gardenRef.current.value,
                 price: priceRef.current.value,
                 status: statusRef.current.value
             }
+            
         );
-
+        console.log(searchHandler);
         
     };
     const doReset = () => {
+    
         typeRef.current.value = "ANY";
-        bedroomsRef.current.value = 0;
-        bathroomsRef.current.value = 0;
-        gardenRef.current.value = 0;
-        priceRef.current.value = 0;
-        statusRef.current.value = 0;
+        numberOfBedroomsRef.current.value = "0";
+        numberOfBathroomsRef.current.value = "0";
+        gardenRef.current.value = "0";
+        priceRef.current.value = "0";
+        statusRef.current.value = "0";
         doSearch();
     };
 
@@ -73,7 +75,7 @@ const PropertySearchForm = (props) => {
                 </div>
             <div className="form-group col">
                 <label htmlFor="numberOfBedrooms"><i class="fas fa-bed"></i>&nbsp;Bedrooms</label>
-                <select className="form-select" ref={bedroomsRef}>
+                <select className="form-select" ref={numberOfBedroomsRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
@@ -84,7 +86,7 @@ const PropertySearchForm = (props) => {
             </div>
             <div className="form-group col">
                 <label htmlFor="numberOfBathrooms"><i class="fas fa-bath"></i>&nbsp;Bathrooms</label>
-                <select className="form-select" ref={bathroomsRef}>
+                <select className="form-select" ref={numberOfBathroomsRef}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>

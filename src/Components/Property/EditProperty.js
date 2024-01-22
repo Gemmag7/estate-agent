@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-function EditProperty() {
+function EditProperty(props) {
     //Acessing the ID parameter from the URL
     const { id } = useParams();
     //Accessing the current location
@@ -11,48 +11,38 @@ function EditProperty() {
 
     //State storage that holds all property details
     const [values, setValues] = useState({
-        id: "",
-        address: "",
-        postcode: "",
-        type: "",
-        price: "",
-        bedroom: "",
-        bathroom: "",
-        garden: "",
-        sellerId: "",
-        status: "",
+        "id": id,
+        "address": props.address,
+        "postcode": props.postcode,
+        "type": props.type,
+        "price": props.price,
+        "bedroom": props.numberOfBedrooms,
+        "bathroom": props.numberOfBathrooms,
+        "garden": props.garden,
+        "sellerId": props.sellerId,
+        "status": props.status, 
+        "buyerId" : props.buyerId
     });
 
-    useEffect(() => {
-        //Checks if property data is available in the location state
-        if (location.state && location.state.property) {
-            //Extracts the property data from the location state
-            const propertyData = location.state.property;
-            //Setting the property data in state
-            setValues({
-                id: id,
-                address: propertyData.address,
-                postcode: propertyData.postcode,
-                type: propertyData.type,
-                price: propertyData.price,
-                bedroom: propertyData.bedroom,
-                bathroom: propertyData.bathroom,
-                garden: propertyData.garden,
-                sellerId: propertyData.sellerId,
-                status: propertyData.status,
-            });
-        } else {
-            // Fetch property details using the ID if necessary
-            fetch(`http://localhost:3004/property/${id}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    //Set the fetched property data in the state
-                    setValues(data);
-                })
-                .catch((err) => console.log(err));
-        }
-        //Dependancy array to track changes in Id or location state
-    }, [id, location.state]);
+    useEffect(()=> {
+        fetch(`https://localhost:7091/Property/${id}`)
+        .then(res => {
+        setValues({...values, 
+            "address": location.state.properties.address,
+            "postcode": location.state.properties.postcode,
+            "type": location.state.properties.type,
+            "price": location.state.properties.price,
+            "numberOfBedrooms": location.state.properties.numberOfBedrooms,
+            "numberOfBathrooms": location.state.properties.numberOfBathrooms,
+            "garden": location.state.properties.garden,
+            "sellerId": location.state.properties.sellerId,
+            "status": location.state.properties.status,
+            "buyerId": location.state.properties.buyerId
+        })
+    }).catch(err => console.log(err))
+        
+     
+    }, [])
 
     //Function to handle changes in input fields
     const handleChange = (e) => {
@@ -63,22 +53,33 @@ function EditProperty() {
     //Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        //Fetch call to the API to edit the data belonging to the selected property with Id  
-        fetch(`http://localhost:3004/property/${id}`, {
+        //Fetch call to the API to edit the data belonging to the selected property with Id  https://localhost:7091/Property/12
+        fetch(`https://localhost:7091/Property/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(values),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                //Navigates to the /viewproperty page after user has sucessfully edited a property
-                navigate('/');
+            body: JSON.stringify(values), 
+        }).then(res => res.json())
+            .then(res => {
+                setValues({
+                    ...values,
+                    "address": res.address,
+                    "postcode": res.postcode,
+                    "type": res.type,
+                    "price": res.price,
+                    "numberOfBedrooms": res.numberOfBedrooms,
+                    "numberOfBathrooms": res.numberOfBathrooms,
+                    "garden": res.garden,
+                    "sellerId": res.sellerId,
+                    "status": res.status,
+                    "buyerId": res.buyerId
+                 });
+                 navigate("/")
             })
             .catch((error) => {
                 console.error("Error:", error);
-            });
+            }, [id, values]);
     };
 
     return (
@@ -113,7 +114,7 @@ function EditProperty() {
                     Type:<input
                                         type="text"
                                         id="type"
-                                        name="address"
+                                        name="type"
                                         value={values.type}
                                         className="form-control"
                                         onChange={e => setValues({...values, type:e.target.value})}
@@ -134,22 +135,22 @@ function EditProperty() {
                     <div>
                     Bedrooms:<input
                                         type="text"
-                                        id="bedroomNo"
-                                        name="bedroomNo"
-                                        value={values.bedroom}
+                                        id="numberOfBedrooms"
+                                        name="numberOfBedrooms"
+                                        value={values.numberOfBedrooms}
                                         className="form-control"
-                                        onChange={e => setValues({...values, bedroom:e.target.value})}
+                                        onChange={e => setValues({...values, numberOfBedrooms:e.target.value})}
                                         
                                         />
                     </div>
                     <div>
                     Bathrooms:<input
                                         type="text"
-                                        id="bathroomNo"
-                                        name="batroomNo"
-                                        value={values.bathroom}
+                                        id="numberOfBathrooms"
+                                        name="numberOfBathrooms"
+                                        value={values.numberOfBathrooms}
                                         className="form-control"
-                                        onChange={e => setValues({...values, bathroom:e.target.value})}
+                                        onChange={e => setValues({...values, numberOfBathrooms:e.target.value})}
                                        
                                         />
                     </div>
@@ -174,7 +175,7 @@ function EditProperty() {
                         className="form-control"
                         onChange={handleChange}
                         value={values.status}
-                        name="gardenSelect"
+                        name="statusSelect"
                     >
                         <option disabled>Any</option>
                         <option value="FOR SALE">For Sale</option>

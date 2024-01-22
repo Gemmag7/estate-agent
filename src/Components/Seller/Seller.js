@@ -26,28 +26,29 @@ const Seller = (props) => {
         }
 
         setSaving(true);
-
-        fetch("http://localhost:3004/seller", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newSeller)
+        console.log(newSeller);
+        fetch("https://localhost:7091/Seller", {
+             method: "POST",
+            headers: {"Content-Type": "application/json"
+        },
+            body: newSeller
         })
         .then((response) => {
             if (!response.ok) {
-                alert("An error has occurred.  Unable to create the TODO item");
+                alert("An error has occurred.  Unable to create the TODO item ;(");
                 setSaving(false);
                 throw response.status;
             } else return response.json();
         })
         .then(newSeller => {
             dispatch({type: "ADD", payload: newSeller});
-            setSaving(false);
+            setSaving(true);
         });
     };
 
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:3004/seller")
+        fetch("https://localhost:7091/Seller")
         .then((response) => {
             if (!response.ok) {
                 alert("An error has occurred.  Unable to read the Sellers");

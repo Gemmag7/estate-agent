@@ -5,17 +5,16 @@ function AddBuyer(){
 
     let navigate = useNavigate();
     const [buyer, setBuyer] = useState({
-        "id": "",
+        
         "firstName": "",
         "surname":"",
         "address": "",
         "postcode": "",
         "phone": ""
-      })
-
+      })//le.log(":(:",buyer)
       const handleSubmit =(e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/buyer`, {
+        fetch(`https://localhost:7091/Buyer`, {
        
         method:"POST", 
         headers: {
@@ -31,9 +30,9 @@ function AddBuyer(){
             surname: document.getElementById("surname").value,
             address: document.getElementById("address").value,
             postcode:document.getElementById("postcode").value,
-            phone: document.getElementById("phoneNo").value,
+            phone: document.getElementById("phone").value,
         })
-        navigate('/buyer')
+        navigate('/Buyer')
         console.log(":",buyer)
     });
     
@@ -41,7 +40,7 @@ function AddBuyer(){
 
 
     return(
-        <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
+        <div className="d-flex vw-100 vh-100 justify-content-center align-items-center">
             <div className="w-50 border bg-secondary text-white p-5">
                 <form onSubmit={handleSubmit} >
                     <div>
@@ -65,7 +64,7 @@ function AddBuyer(){
                                         name="surname"
                                         className="form-control"
                                         onChange={e => setBuyer({...buyer, surname:e.target.value})}
-                                        placeholder="Enter Surame..."
+                                        placeholder="Enter Surname..."
                                         />
                     </div>
                     <div>
@@ -93,8 +92,8 @@ function AddBuyer(){
                     <div>
                     Phone Numer:<input
                                         type="text"
-                                        id="phoneNo"
-                                        name="phoneNo"
+                                        id="phone"
+                                        name="phone"
                                         value={buyer.phone}
                                         className="form-control"
                                         onChange={e => setBuyer({...buyer, phone:e.target.value})}

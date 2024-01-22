@@ -1,4 +1,4 @@
-.form-group col{
+.form-group.col{
     display: flexbox;
 }
 
@@ -13,13 +13,13 @@
 /* Body background color */
 body {
     background-color:#fcebf1;   /*#fce4ec;  Light pink background */
-  border: #9955bb;
+  border: 2px solid #9955bb;
   
 }
 
 /* Form labels */
 label {
-    color: #f12b6b;; /* Pink text color for labels */
+    color: #f12b6b;; /* sPink text color for labels */
 }
 
 
@@ -46,6 +46,7 @@ label {
 }
 
 /* Icon colors
-.fas, .bi {
+.fas, 
+.bi {
     color: #9955bb; /* Pink icon color 
 }*/

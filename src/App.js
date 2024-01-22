@@ -19,6 +19,7 @@ import Resubmit from "./Components/Property/Resubmit";
 import EditSeller from "./Components/Seller/EditSeller";
 import  Navbar  from "./Components/Navigation/Navbar";
 import EditBuyer from "./Components/Buyer/EditBuyer";
+import AddBuyer from "./Components/Buyer/AddBuyer";
 function App() {
     return (
         
@@ -36,7 +37,7 @@ function App() {
                     <Route path="seller/:sellerId/property" element={<SellerProperty/>}/>
                     <Route path="buyer" element={<ViewBuyers/>}/>
                     <Route path ="/buyer/:id/edit" element={<EditBuyer/>}/>
-                   {/**  <Route path ="/buyer/add" element={<AddBuyer/>}/>*/}
+                    <Route path ="/buyer/add" element={<AddBuyer/>}/>
                    <Route path="/property/:id/resubmit" element={<Resubmit/>}/>
                     <Route path="/property/:id/withdraw" element={<WithdrawProperty/>}/>
                     <Route path="/property/:propertyId/booking" element={<Booking/>}/>

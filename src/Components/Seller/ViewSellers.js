@@ -14,7 +14,7 @@ function DeleteSeller(X){
    
     const confirmed = window.confirm("Are you sure you want to delete?")
     if (confirmed) {
-     fetch(`http://localhost:3004/seller/${X.id}`, {
+     fetch(`https://localhost:7091/Seller/${X.id}`, {
       
         method:"DELETE", 
         headers: {
@@ -35,7 +35,7 @@ function EditSeller(X){
         //editRecords(X)
     }
     // let {id} = useParams()
-      fetch(`http://localhost:3004/seller/${X.id}`, {
+      fetch(`https://localhost:7091/Seller/${X.id}`, {
        
          method:"DELETE", 
          headers: {
@@ -49,7 +49,7 @@ function EditSeller(X){
 
 function generateSellerList()
 {
-    fetch('http://localhost:3004/seller')
+    fetch('https://localhost:7091/Seller')
     .then((response)=>response.json())
     .then((data)=>{
         setSellers(data)});
@@ -84,7 +84,7 @@ function generateSellerList()
                     <td>{X.postcode}</td>
                     <td>{X.phone}</td>
                     <td><input type="button" id='deleteBtn' value="Delete"onClick={() => DeleteSeller(X)}></input>
-                    <Link className='editLink' state={{sellers: X}} to={`/seller/${X.id}/edit`}  style={{ marginLeft: '10px', textDecoration: 'none' }}>Update</Link>
+                    <Link className='editLink' state={{sellers: X}} to={`/Seller/${X.id}/edit`}  style={{ marginLeft: '10px', textDecoration: 'none' }}>Update</Link>
                     
                     </td>
                   

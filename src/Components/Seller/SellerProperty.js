@@ -30,7 +30,7 @@ const SellerProperty = () => {
 
     useEffect(() => {
         setLoadingProperties(true);
-        fetch("http://localhost:3004/property")
+        fetch("https://localhost:7091/Property")
         // get the JSON content from the response
         .then((response) => {
             if (!response.ok) {
@@ -53,7 +53,7 @@ const SellerProperty = () => {
     const propertyAddHandler = (newProperty) => {
         setSaving(true);
 
-        fetch("http://localhost:3004/property", {
+        fetch("https://localhost:7091/Property", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newProperty)
@@ -78,7 +78,7 @@ const SellerProperty = () => {
 
         setSaving(true);
 
-        fetch("http://localhost:3004/property/" + updatedProperty.id, {
+        fetch("https://localhost:7091/Property/" + updatedProperty.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(updatedProperty)

@@ -23,7 +23,7 @@ function WithdrawProperty(props) {
     useEffect(() => {
         if (!props.id) {
             // Fetch data only if props are not available
-            fetch(`http://localhost:3004/property/${id}`)
+            fetch(`https://localhost:7091/property/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setValues(data);
@@ -38,7 +38,7 @@ function WithdrawProperty(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/property/${id}`, {
+        fetch(`https://localhost:7091/property/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

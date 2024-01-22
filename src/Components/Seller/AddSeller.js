@@ -3,23 +3,23 @@ import { useNavigate } from "react-router-dom";
 
 function AddSeller(){
 
-    const [sellersDB, setSellersDB] = useState([]);
+   const [sellersDB, setSellersDB] = useState([]);
   const navigate = useNavigate();
   const [seller, setSeller] = useState({
-    id: "",
-    firstName: "",
-    surname: "",
-    address: "",
-    postcode: "",
-    phone: ""
+   
+    "firstName": "",
+    "surname": "",
+    "address": "",
+    "postcode": "",
+    "phone": ""
   });
 
-  useEffect(() => {
+ useEffect(() => {
     generateSellerList();
   }, []);
 
   function generateSellerList() {
-    fetch('http://localhost:3004/seller')
+   fetch('https://localhost:7091/Seller')
       .then((response) => response.json())
       .then((data) => {
         setSellersDB(data);
@@ -44,7 +44,7 @@ function AddSeller(){
       alert("!")
     } else {
       // If seller doesn't exist, proceed to create the seller
-      fetch(`http://localhost:3004/seller`, {
+      fetch(`https://localhost:7091/Seller`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -53,15 +53,16 @@ function AddSeller(){
       })
         .then(res => res.json())
         .then(res => {
-          setSeller({
+          setSeller({...seller,
             id: res.id,
-            firstName: "",
-            surname: "",
-            address: "",
-            postcode: "",
-            phone: ""
+            firstName: document.getElementById("firstName").value, 
+            surname: document.getElementById("surname").value,
+            address: document.getElementById("address").value,
+            postcode:document.getElementById("postcode").value,
+            phone: document.getElementById("phone").value,
           });
-          navigate('/seller');
+          console.log("New seller created:", seller);
+          navigate('/Seller');
           console.log("New seller created:", res);
         })
         .catch(error => {
@@ -98,7 +99,7 @@ function AddSeller(){
                                         name="surname"
                                         className="form-control"
                                         onChange={e => setSeller({...seller, surname:e.target.value})}
-                                        placeholder="Enter Surame..."
+                                        placeholder="Enter Surname..."
                                         />
                     </div>
                     <div>
@@ -126,8 +127,8 @@ function AddSeller(){
                     <div>
                     Phone Numer:<input
                                         type="text"
-                                        id="phoneNo"
-                                        name="phoneNo"
+                                        id="phone"
+                                        name="phone"
                                         value={seller.phone}
                                         className="form-control"
                                         onChange={e => setSeller({...seller, phone:e.target.value})}

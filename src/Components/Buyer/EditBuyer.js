@@ -16,7 +16,7 @@ function EditBuyer(props){
         "phone": props.phone
       })
     useEffect(()=> {
-        fetch(`http://localhost:3004/buyer/${id}`)
+        fetch(`https://localhost:7091/Buyer/${id}`)
         .then(res => {
         setValues({...values, 
             "firstName": location.state.buyers.firstName,
@@ -32,7 +32,7 @@ function EditBuyer(props){
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/buyer/${id}`, {
+        fetch(`https://localhost:7091/Buyer/${id}`, {
        
         method:"PUT", 
         headers: {
@@ -48,7 +48,7 @@ function EditBuyer(props){
             surname: document.getElementById("surname").value,
             address: document.getElementById("address").value,
             postcode:document.getElementById("postcode").value,
-            phone: document.getElementById("phoneNo").value,
+            phone: document.getElementById("phone").value,
         })
         navigate('/buyer')
         console.log(":",values)
@@ -82,7 +82,7 @@ function EditBuyer(props){
                                         name="surname"
                                         className="form-control"
                                         onChange={e => setValues({...values, surname:e.target.value})}
-                                        placeholder="Enter Surame..."
+                                        placeholder="Enter Surname..."
                                         />
                     </div>
                     <div>
@@ -110,7 +110,7 @@ function EditBuyer(props){
                     <div>
                     Phone Numer:<input
                                         type="text"
-                                        id="phoneNo"
+                                        id="phone"
                                         name="phoneNo"
                                         value={values.phone}
                                         className="form-control"
@@ -121,7 +121,7 @@ function EditBuyer(props){
                     <br/>
                     <br/>
                     <button id="mainBtn" style={{marginRight: "2px"}} className="btn btn-info" >Update</button>
-                    <button id="cancelBtn"  className="btn btn-info" onClick={() => navigate('/buyer')}>Cancel</button>
+                    <button id="cancelBtn"  className="btn btn-info" onClick={() => navigate('/Buyer')}>Cancel</button>
                 </form>
                 </div> 
 

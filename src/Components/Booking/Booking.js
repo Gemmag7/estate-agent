@@ -39,7 +39,7 @@ const Booking = () => {
             "time": bookingDate
         };
 
-        fetch("http://localhost:3004/booking", {
+        fetch("https://localhost:7091/Booking", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newBooking)
@@ -58,7 +58,7 @@ const Booking = () => {
 
     const bookingRemoveHandler = (bookingId) => {
         setCancellingBookings(true);
-        fetch("http://localhost:3004/booking/" + bookingId, {
+        fetch("https://localhost:7091/Booking/" + bookingId, {
                 method: "DELETE"
             }
         ).then((response) => {
@@ -90,7 +90,7 @@ const Booking = () => {
     useEffect(() => {
         setLoadingBookings(true);
 
-        fetch("http://localhost:3004/booking")
+        fetch("https://localhost:7091/Booking")
         // get the JSON content from the response
         .then((response) => {
             if (!response.ok) {
@@ -109,7 +109,7 @@ const Booking = () => {
     }, []);
 
     useEffect(() => {
-        fetch("http://localhost:3004/buyer")
+        fetch("https://localhost:7091/Buyer")
         // get the JSON content from the response
         .then((response) => {
             if (!response.ok) {

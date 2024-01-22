@@ -15,7 +15,7 @@ function EditSeller(props){
         "phone": props.phone
       })
     useEffect(()=> {
-        fetch(`http://localhost:3004/seller/${id}`)
+        fetch(`https://localhost:7091/Seller/${id}`)
         .then(res => {
         setValues({...values, 
             "firstName": location.state.sellers.firstName,
@@ -31,8 +31,7 @@ function EditSeller(props){
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/seller/${id}`, {
-       
+        fetch(`https://localhost:7091/Seller/${id}`, {
         method:"PUT", 
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +46,7 @@ function EditSeller(props){
             surname: document.getElementById("surname").value,
             address: document.getElementById("address").value,
             postcode:document.getElementById("postcode").value,
-            phone: document.getElementById("phoneNo").value,
+            phone: document.getElementById("phone").value,
         })
         navigate('/seller')
         console.log(":",values)
@@ -81,7 +80,7 @@ function EditSeller(props){
                                         name="surname"
                                         className="form-control"
                                         onChange={e => setValues({...values, surname:e.target.value})}
-                                        placeholder="Enter Surame..."
+                                        placeholder="Enter Surname..."
                                         />
                     </div>
                     <div>
@@ -109,8 +108,8 @@ function EditSeller(props){
                     <div>
                     Phone Numer:<input
                                         type="text"
-                                        id="phoneNo"
-                                        name="phoneNo"
+                                        id="phone"
+                                        name="phone"
                                         value={values.phone}
                                         className="form-control"
                                         onChange={e => setValues({...values, phone:e.target.value})}
@@ -119,8 +118,8 @@ function EditSeller(props){
                     </div>
                     <br/>
                     <br/>
-                    <button id="mainBtn"  className="btn btn-info" style={{marginRight: "2px"}}>Update</button>
-                    <button id="cancelBtn"  className="btn btn-info" style={{backgroundColor:"#c7c7c7"}} onClick={() => navigate('/seller')}>Cancel</button>
+                    <button id="mainBtn"  style={{marginRight: "2px"}} className="btn btn-info" >Update</button>
+                    <button id="cancelBtn"  className="btn btn-info" style={{backgroundColor:"#c7c7c7"}} onClick={() => navigate('/Seller')}>Cancel</button>
                 </form>
                 </div> 
 

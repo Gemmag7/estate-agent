@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 function DeleteSeller(){
 
     let {id} = useParams()
-    let ref = fetch(`http://localhost:3000/seller/${id}`, {
+    let ref = fetch(`https://localhost:7091/Seller/${id}`, {
         method:"DELETE", 
        
     })

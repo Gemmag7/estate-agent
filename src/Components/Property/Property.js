@@ -45,7 +45,7 @@ const Property = (props) => {
 
         const confirmed = window.confirm("Are you sure you want to delete?")
         if (confirmed) {
-            fetch(`http://localhost:3004/property/${property.id}`, {
+            fetch(`https://localhost:7091/Property/${property.id}`, {
     
                 method: "DELETE",
                 headers: {
@@ -61,12 +61,12 @@ const Property = (props) => {
 
     function generateProperties(){
         setLoading(true);
-        fetch("http://localhost:3004/property")
+        fetch("https://localhost:7091/Property")
         // get the JSON content from the response
         .then((response) => {
             //if response isn't okay and returns a code that is not 200, then an error message will display
             if (!response.ok) {
-                alert("An error has occurred.  Unable to load Properties data");
+                alert("An error has occurred.  Unable to load Properties data :(");
                 throw response.status;
             } else return response.json();
         })
@@ -112,7 +112,7 @@ const Property = (props) => {
                         :
                         <div className="PropertyApp">
                             <Link className='addLink' style={{margin:"4px"}} state={{properties}} to={`/property/add`}>Add a Property</Link>
-                        <Table responsive="lg" style={{borderRadius: "14px"}}>
+                        <Table responsive="lg" style={{borderRadius: "14px"}} sortable>
                             <thead>
                                 <tr style={{ backgroundColor: "rgb(255, 192, 203)"}}>
                                     <th><i class="fa fa-home"></i>&nbsp;Type</th>
@@ -135,8 +135,8 @@ const Property = (props) => {
                                         <td className="Addclass">{item.address}</td>
                                         <td>£{item.price}</td>
                                         <td>{item.status}</td>
-                                        <td>{item.bedroom}</td>
-                                        <td>{item.bathroom}</td>
+                                        <td>{item.numberOfBedrooms}</td>
+                                        <td>{item.numberOfBathrooms}</td>
                                         <td><Gardenvalue garden={item.garden} /></td>
                                         <td>
                                             {
