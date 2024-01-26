@@ -58,6 +58,8 @@ function EditProperty() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
+        console.log("Name:",[name] )
+        console.log("value", value)
     };
 
     //Function to handle form submission
@@ -159,7 +161,7 @@ function EditProperty() {
                             className="form-control"
                             onChange={handleChange}
                             value={values.garden}
-                            name="gardenSelect"
+                            name="garden"
                         >
                     <option disabled>Any</option>
                     <option value="1">Yes</option>
@@ -174,7 +176,7 @@ function EditProperty() {
                         className="form-control"
                         onChange={handleChange}
                         value={values.status}
-                        name="gardenSelect"
+                        name="status"
                     >
                         <option disabled>Any</option>
                         <option value="FOR SALE">For Sale</option>
