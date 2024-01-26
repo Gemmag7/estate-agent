@@ -123,35 +123,39 @@ ul li.checked {
    
   button:hover {
     background-color: #ff1493; /* Darker pink on hover 
-  }
+  }*/
    
-  /* Styles for the table 
-  #table {
-    width: 100%;
+/* Styles for the table */
+.PropertyApp table  {
+  padding-top: 200px;
+    border: 2px solid #ff69b4;
+    width:100%;
+    height: 200px;
+    
     border-collapse: collapse;
   }
    
-  #table th,
-  #table td {
-    border: 1px solid #ffd1dc; /* Light pink border 
+  .PropertyApp thead
+  {
+    border: 1px solid #ffd1dc; /* Light pink border */
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
    
   #txtheader {
-    background-color: #ff69b4; /* Hot pink table header background 
+    background-color: #ff69b4; /* Hot pink table header background */
     color: white;
     font-weight: bold;
   }
    
-  /* Styles for table rows 
+  Styles for table rows 
   #table tr:nth-child(even) {
-    background-color: #fff0f5; /* Light pink rows 
+    background-color: #fff0f5; /* Light pink rows */
   }
    
   #table tr:hover {
-    background-color: #ffe4e1; /* Darker pink on row hover 
-  }*/
+    background-color: #ffe4e1; /* Darker pink on row hover */
+  }
 
   body{
     font-family: 'Arial', sans-serif;
@@ -173,7 +177,16 @@ ul li.checked {
     font-weight: bold;
     margin-bottom: 10px;
   }
+  .PropertyApp {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+ 
 
+.Addclass{
+    width:35%
+}
   @media screen and (max-width: 979px){
     .pageHeader{
       font-size: 1.3rem;

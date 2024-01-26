@@ -38,6 +38,7 @@ body{
   border-radius: 5px;
 }
 
+
   tr{
     justify-content: center;
   }
@@ -138,5 +139,23 @@ body{
   
   a.withdrawLink:hover {
     background-color: #39C9BB;
+  }
+  a.resubmitLink{
+    background-color: #C3B1E1;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align:justify;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+  
+  a.resubmitLink:hover {
+    background-color: #A89BF1;
   }
  

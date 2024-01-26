@@ -146,7 +146,7 @@
       "bathroom": "1",
       "garden": "1",
       "sellerId": "4",
-      "status": "FOR SALE",
+      "status": "WITHDRAWN",
       "statusSelect": "SOLD",
       "gardenSelect": "1"
     }

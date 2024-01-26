@@ -114,7 +114,7 @@ const Property = (props) => {
                             <Link className='addLink' style={{margin:"4px"}} state={{properties}} to={`/property/add`}>Add a Property</Link>
                         <Table responsive="lg" style={{borderRadius: "14px"}}>
                             <thead>
-                                <tr style={{ backgroundColor: "rgb(255, 192, 203)"}}>
+                                <tr style={{ "backgroundColor": "rgb(255, 192, 203)", "color": "purple"}}>
                                     <th><i class="fa fa-home"></i>&nbsp;Type</th>
                                     <th className="Addclass"><i className="fa fa-home"> </i> &nbsp;Address</th>
                                     <th ><i className="fa fa-money" ></i>&nbsp;Price</th>
@@ -142,7 +142,7 @@ const Property = (props) => {
                                             {
                                                 <td>
                                                     {item.status === "WITHDRAWN" && (
-                                                        <Link className='withdrawLink' style={{ marginTop: "4px" }} state={{ properties: item }} to={`/property/${item.id}/resubmit`}>Resubmit</Link>
+                                                        <Link className='resubmitLink' style={{ marginTop: "4px" }} state={{ properties: item }} to={`/property/${item.id}/resubmit`}>Resubmit</Link>
         
                                                     )}</td>
                                             }
