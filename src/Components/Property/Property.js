@@ -31,13 +31,16 @@ const Property = (props) => {
     const [loading, setLoading] = useState(true);
 
     const searchHandler = (searchCriteria) => {
-        setSearchResult(properties.filter(property =>
-            (searchCriteria.type === "ANY" || property.type === searchCriteria.type) &&
-            (Number(property.bedroom) >= Number(searchCriteria.bedroom)) &&
-            (Number(property.bathroom) >= Number(searchCriteria.bathroom)) &&
-            (Number(property.garden) >= Number(searchCriteria.garden)) &&
-            (searchCriteria.status === "ANY" || property.status === searchCriteria.status) &&
-            (Number(searchCriteria.price) === 0 || Number(property.price) <= Number(searchCriteria.price))
+        setSearchResult(properties.filter((property) =>
+        (searchCriteria.type === "ANY" || property.type === searchCriteria.type) &&
+        Number(property.bathroom) >= Number(searchCriteria.bathroom) &&
+        Number(property.bedroom) >= Number(searchCriteria.bedroom) &&
+        Number(property.garden) == Number(searchCriteria.garden) &&
+        (searchCriteria.status === "ANY" || property.status === searchCriteria.status) &&
+        (Number(searchCriteria.price) === 0 ||Number(property.price) <= Number(searchCriteria.price))
+
+
+            
         ));
         console.log(searchCriteria);
         console.log(": ", searchResult);

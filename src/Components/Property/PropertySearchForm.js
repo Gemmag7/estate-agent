@@ -102,7 +102,7 @@ const PropertySearchForm = (props) => {
             <div className="form-group col">
                 <label htmlFor="numberOfGardens"><i class="fas fa-tree"></i>&nbsp;Garden</label>
                 <select className="form-select" ref={gardenRef}>
-                <option value="0">Any</option>
+                <option value="ANY">Any</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
