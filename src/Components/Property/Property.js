@@ -39,6 +39,8 @@ const Property = (props) => {
             (searchCriteria.status === "ANY" || property.status === searchCriteria.status) &&
             (Number(searchCriteria.price) === 0 || Number(property.price) <= Number(searchCriteria.price))
         ));
+        console.log(searchCriteria);
+        console.log(": ", searchResult);
     };
 
     function handleDeleteProperty(property) {

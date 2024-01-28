@@ -1,43 +1,51 @@
 import React, {useRef} from "react";
 import "./PropertyForm.css";
 
+
 const PropertySearchForm = (props) => {
 
     const searchHandler = props.searchHandler;
-
-    const typeRef = useRef();
-    const bedroomsRef = useRef();
-    const bathroomsRef = useRef();
-    const gardenRef = useRef();
-    const priceRef = useRef();
-    const statusRef = useRef();
-
-    const doSearch = () => {
-        console.log("IN DOSEARCH")
-        searchHandler(
-            {
-                type: typeRef.current.value,
-                bedroom: bedroomsRef.current.value,
-                bathroom: bathroomsRef.current.value,
-                garden: gardenRef.current.value,
-                price: priceRef.current.value,
-                status: statusRef.current.value
-            }
-        );
+    //setting the search handler function in a varibale for easier use, extracted via the prop which has been passed down containing the function
+ 
+     const typeRef = useRef();
+     const bedroomsRef = useRef();
+     const bathroomsRef = useRef();
+     const gardenRef = useRef();
+     const priceRef = useRef();
+     const statusRef = useRef();
+ 
+ 
+     const doSearch = () => {
+         searchHandler(
+             {
+                 type: typeRef.current?.value,
+                 bedroom: bedroomsRef.current?.value,
+                 bathroom: bathroomsRef.current?.value,
+                 garden: gardenRef.current?.value,
+                 price: priceRef.current?.value,
+                 status: statusRef.current?.value
+             }
+         );
+     }
+       
 
         
-    };
+    
     const doReset = () => {
+        
         typeRef.current.value = "ANY";
         bedroomsRef.current.value = 0;
         bathroomsRef.current.value = 0;
-        gardenRef.current.value = 0;
+        gardenRef.current.value = "ANY";
         priceRef.current.value = 0;
-        statusRef.current.value = 0;
-        doSearch();
+        statusRef.current.value = "ANY";
+
+       // doSearch();
+       
     };
 
     return (
+        <>
         <form className="pform">
         <h1>Property Search and Bookings</h1>
         <div className="row">
@@ -65,7 +73,7 @@ const PropertySearchForm = (props) => {
             <div className="form-group col">
                 <label htmlFor="propertyStatus" ><i class="fa fa-cart-plus"></i>Status</label>
                 <select  className="form-select" ref={statusRef}>
-                    <option value="0">Any</option>
+                    <option value="ANY">Any</option>
                     <option value="SOLD">SOLD</option>
                     <option value="FOR SALE">FOR SALE</option>
                     <option value="WITHDRAWN">WITHDRAWN</option>
@@ -94,7 +102,7 @@ const PropertySearchForm = (props) => {
             <div className="form-group col">
                 <label htmlFor="numberOfGardens"><i class="fas fa-tree"></i>&nbsp;Garden</label>
                 <select className="form-select" ref={gardenRef}>
-                    <option value="0">Any</option>
+                <option value="0">Any</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
@@ -109,7 +117,8 @@ const PropertySearchForm = (props) => {
                 
             </div>
             </div>
-    </form>);
+    </form>
+    </>);
 };
 
 export default PropertySearchForm;

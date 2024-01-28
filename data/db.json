@@ -123,20 +123,6 @@
       "id": "4"
     },
     {
-      "address": "123 new street",
-      "postcode": "T35 T1ng",
-      "type": "SEMI",
-      "price": "200000",
-      "bedroom": "5",
-      "bathroom": "2",
-      "garden": "1",
-      "sellerId": "4",
-      "status": "FOR SALE",
-      "id": "5",
-      "gardenSelect": "SOLD",
-      "statusSelect": "SOLD"
-    },
-    {
       "id": "7762",
       "address": "Test",
       "postcode": "test",
