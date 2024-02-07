@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from '../Button/Button';
+//import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+//import './Navbar.css';
 
 
 function Navbar() {
@@ -14,7 +14,7 @@ function Navbar() {
  
   return (
     <>
-      <nav className='navbar'>
+      <nav className='navbar' role='navigation' data-testid='nav'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           QA REAL ESTATE
           <i class='fab fa-firstdraft' />

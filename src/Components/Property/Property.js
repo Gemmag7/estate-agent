@@ -18,7 +18,7 @@ const Property = (props) => {
 
     function Gardenvalue(props) {
 
-        if (props.garden == 0) {
+        if (props.garden === 0) {
             return <td>No</td>
         }
         else{ 
@@ -35,7 +35,7 @@ const Property = (props) => {
         (searchCriteria.type === "ANY" || property.type === searchCriteria.type) &&
         Number(property.bathroom) >= Number(searchCriteria.bathroom) &&
         Number(property.bedroom) >= Number(searchCriteria.bedroom) &&
-        Number(property.garden) == Number(searchCriteria.garden) &&
+        Number(property.garden) === Number(searchCriteria.garden) &&
         (searchCriteria.status === "ANY" || property.status === searchCriteria.status) &&
         (Number(searchCriteria.price) === 0 ||Number(property.price) <= Number(searchCriteria.price))
 
@@ -94,7 +94,7 @@ const Property = (props) => {
 
     return (
         <>
-             <div className="PropForm">
+             <div className="PropForm" data-testid="PropForm">
             <PropertySearch searchHandler={searchHandler}/>
             <hr/>
 

@@ -9,7 +9,7 @@ import ViewBuyers from "./Components/Buyer/ViewBuyers";
 import SellerProperty from "./Components/Seller/SellerProperty";
 import Booking from "./Components/Booking/Booking";
 import Property from "./Components/Property/Property";
-import ViewProperties from "./Components/Property/ViewProperties";
+
 import AddProperty from "./Components/Property/AddProperty";
 import WithdrawProperty from "./Components/Property/WithdrawProperty";
 import ViewSellers from "./Components/Seller/ViewSellers";

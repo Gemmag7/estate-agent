@@ -2,25 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Seller/Seller.css'
 
-function ViewBuyers(){
+function ViewBuyers(props){
 
     let [buyers, setBuyers] = useState([])
-useEffect(() =>{ generateBuyerList();
+   
+useEffect(() =>{  setBuyers(props);//generateBuyerList();
 }, []);
     
-function DeleteBuyer(X){
+function DeleteBuyer(props){
 
    // let {id} = useParams()
    
    const confirmed = window.confirm("Are you sure you want to delete?")
    if (confirmed) {
-     fetch(`http://localhost:3004/buyer/${X.id}`, {
+     fetch(`http://localhost:3004/buyer/${props}`, {
       
         method:"DELETE", 
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({id: X.id}),
+        body: JSON.stringify({id: props}),
        
     }).then((res) => res.json());
     
@@ -57,11 +58,11 @@ function generateBuyerList()
 
     return(
         <div className='container'>
-        <h2>Buyerss</h2>
+        <h2>Buyers</h2>
         <br/>
         <br/>
         <Link className='addLink' state={{buyers}} to={`/buyer/add`}>Create +</Link>
-        <table>
+        <table name="buyer-table" data-testid="buyer-table" id="buyer-table">
             <tbody>
             <tr style={{ backgroundColor: '#FFC0CB', color: '#fff' }}>
                 <th>UserID </th>
@@ -74,7 +75,7 @@ function generateBuyerList()
             </tr>
            
             {
-                buyers.map( (X) =>
+                props.buyers.map( (X) =>
                 <tr>
                     <td>{X.id}</td>
                     <td>{X.firstName}</td>
@@ -82,7 +83,7 @@ function generateBuyerList()
                     <td>{X.address}</td>
                     <td>{X.postcode}</td>
                     <td>{X.phone}</td>
-                    <td><input type="button" id='deleteBtn' value="Delete"onClick={() => DeleteBuyer(X)}></input>
+                    <td><input type="button" id='deleteBtn' data-testid="btnDelete" value="Delete"onClick={() => props.DeleteBuyer(X.id)}></input>
                     <Link className='editLink' state={{buyers: X}} to={`/buyer/${X.id}/edit`}>Update</Link>
                     
                     </td>
